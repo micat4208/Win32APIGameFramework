@@ -16,6 +16,13 @@ private :
 
 
 public :
+    virtual void Initialize() override;
+    virtual void Tick(float dt);
+    virtual void Render(HDC hdc);
+    virtual void Release() override;
+
+
+public :
     template<typename T>
     FORCEINLINE T* NewObject(
         tstring objName = tstring(TEXT("GameObject")))
@@ -36,6 +43,19 @@ public :
 
         return Cast<T>(newObj);
     }
+
+
+    // 씬에 추가된 오브젝트중 objName 와 일치하는 이름을 가진 오브젝트 하나를 찾습니다.
+    CObject* FindObject(tstring objName);
+
+    // 씬에 추가된 오브젝트중 objName 과 일치하는 오브젝트들을 찾습니다.
+    /// - return : 찾은 오브젝트가 존재하는 경우 true 리턴
+    /// - objName : 찾을 오브젝트의 이름
+    /// - outFindedObjects : 찾은 오브젝트를 저장할 vector
+    bool FindObjects(tstring objName, vector<CGameObject*>& outFindedObjects);
+
+    // 오브젝트를 제거합니다.
+    void Destroy(CGameObject* obj);
 
 
 };

@@ -2,7 +2,7 @@
 
 CObject::CObject()          { }
 void CObject::Initialize()  { }
-void CObject::Release()     { };
+void CObject::Release()     { }
 CObject::~CObject()         { }
 
 tstring CObject::ToString() const

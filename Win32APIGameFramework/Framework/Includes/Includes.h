@@ -21,6 +21,7 @@ using namespace std;
 
 // Globals...
 extern class CGameInstance* GameInstance;
+extern HWND Hwnd;
 
 
 // Operators...

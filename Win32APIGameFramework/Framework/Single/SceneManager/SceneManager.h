@@ -1,37 +1,45 @@
-#pragma once
+ï»¿#pragma once
 #include "../ManagerClassBase/ManagerClassBase.h"
+
+#include "../../Base/Scene/Scene.h"
 
 class CSceneManager final :
     public CManagerClassBase<CSceneManager>
 {
 private :
-    // ÇöÀç ¾À
+    // í˜„ì¬ ì”¬
     class CScene* CurrentScene;
 
-    // ´ÙÀ½ ¾À
+    // ë‹¤ìŒ ì”¬
     class CScene* NextScene;
+
+public :
+    virtual void InitializeManagerClass() override;
+    virtual void ReleaseManagerClass() override;
+
+    void Tick(float dt);
 
 public :
     template<typename SceneType>
     void LoadScene()
     {
-        // »ó¼Ó °ü°è È®ÀÎ
-        if (IsA<CScene, SceneType>())
+        // ìƒì† ê´€ê³„ í™•ì¸
+        if (!IsA<CScene, SceneType>())
         {
-            LOG(TEXT("CScene Çü½Ä°ú »ó¼Ó °ü°è°¡ ¾Æ´Ñ Çü½ÄÀÔ´Ï´Ù."));
+            LOG(TEXT("CScene í˜•ì‹ê³¼ ìƒì† ê´€ê³„ê°€ ì•„ë‹Œ í˜•ì‹ì…ë‹ˆë‹¤."));
             return;
         }
 
-        // ¸¸¾à Àü¿¡ ¿äÃ»ÇÑ ¾ÀÀÌ Á¸ÀçÇÒ °æ¿ì
+        // ë§Œì•½ ì „ì— ìš”ì²­í•œ ì”¬ì´ ì¡´ì¬í•  ê²½ìš°
         if (NextScene != nullptr)
         {
-            // ÇÒ´çµÈ ¾À ÇØÁ¦
+            // í• ë‹¹ëœ ì”¬ í•´ì œ
             delete NextScene;
             NextScene = nullptr;
         }
 
-        // ´ÙÀ½ ¾ÀÀ» ¼³Á¤ÇÕ´Ï´Ù.
-        NextScene = new SceneType();
+        // ë‹¤ìŒ ì”¬ì„ ì„¤ì •í•©ë‹ˆë‹¤.
+        NextScene = NewObj<SceneType>();
     }
 };
 

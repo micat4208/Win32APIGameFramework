@@ -21,8 +21,8 @@ void CGameInstance::Release()
 	for (auto iter = ManagerClasses.begin();
 		iter != ManagerClasses.end(); ++iter)
 	{
-		delete iter->second;
 		iter->second->ReleaseManagerClass();
+		delete iter->second;
 	}
 
 	ManagerClasses.clear();

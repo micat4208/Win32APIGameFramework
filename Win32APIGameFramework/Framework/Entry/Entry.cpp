@@ -1,8 +1,10 @@
 #include "../Includes/Includes.h"
 
 #include "../Single/GameInstance/GameInstance.h"
+#include "../Single/SceneManager/SceneManager.h"
 
 class CGameInstance* GameInstance;
+HWND Hwnd;
 
 LRESULT CALLBACK WndProc(HWND hwnd, UINT msg, WPARAM wParam, LPARAM lParam);
 
@@ -53,7 +55,7 @@ int APIENTRY WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance,
 #pragma endregion
 
 #pragma region 3. 윈도우 창 생성
-	hWnd = CreateWindow(
+	Hwnd = hWnd = CreateWindow(
 		WndClass.lpszClassName,
 		TEXT("Window Title"),
 		WS_OVERLAPPEDWINDOW,
@@ -94,7 +96,7 @@ int APIENTRY WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance,
 
 			if (totalDt >= targetDt)
 			{
-
+				CSceneManager::Instance()->Tick(totalDt);
 
 				totalDt = 0.0f;
 			}

@@ -11,8 +11,9 @@ class CManagerClassBase abstract :
 	public IManagerClass
 {
 public :
-	virtual void InitializeManagerClass() override {}
-	virtual void ReleaseManagerClass() override;
+	FORCEINLINE virtual void InitializeManagerClass() override {}
+	FORCEINLINE virtual void ReleaseManagerClass() override
+	{ Release(); }
 
 	FORCEINLINE static ManagerClassType* Instance()
 	{
@@ -23,9 +24,3 @@ public :
 			managerInstance;
 	}
 };
-
-template<typename ManagerClassType>
-inline void CManagerClassBase<ManagerClassType>::ReleaseManagerClass()
-{
-	Release();
-}

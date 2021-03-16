@@ -14,6 +14,15 @@ private :
     // 제거될 오브젝트를 저장할 리스트
     list<CGameObject*> DestroyedGameObjectList;
 
+    // 추가될 RenderComponent 를 저장할 리스트
+    list<class CRenderComponent*> CreatedRenderComponents;
+
+    // 실제 그리기 작업이 진행되는 RenderComponent 를 저장할 리스트
+    list<class CRenderComponent*> UsedRenderComponents;
+
+
+    class CBitmap* Erase, * BackBuffer;
+
 
 public :
     virtual void Initialize() override;
@@ -56,6 +65,10 @@ public :
 
     // 오브젝트를 제거합니다.
     void Destroy(CGameObject* obj);
+
+    FORCEINLINE void RegisterNewRenderComponent(
+        class CRenderComponent* newRenderComponent)
+    { CreatedRenderComponents.push_back(newRenderComponent); }
 
 
 };

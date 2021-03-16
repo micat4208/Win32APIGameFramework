@@ -1,31 +1,17 @@
 #include "Scene.h"
-
-void CScene::Release()
-{
-    CObject::Release();
-
-    // 추가하려는 오브젝트가 존재하는 경우
-    if (CreatedGameObjectList.size() != 0)
-    {
-        for (auto iter = CreatedGameObjectList.begin();
-            iter != CreatedGameObjectList.end(); ++iter)
-        {
-            DeleteObj((*iter));
-        }
-
-        CreatedGameObjectList.clear();
-    }
-
-    // 추가된 오브젝트 해제
-    for (auto usedObj : UsedGameObjectList)
-    {
-        DeleteObj(usedObj);
-    }
-    UsedGameObjectList.clear();
-}
+#include "../../Bitmap/Bitmap.h"
 
 void CScene::Initialize()
-{ CObject::Initialize(); }
+{ 
+    CObject::Initialize(); 
+
+    Erase = NewObj<CBitmap>();
+    Erase->LoadBmp(TEXT("Resources/Back/Back.bmp"));
+
+    BackBuffer = NewObj<CBitmap>();
+    BackBuffer->LoadBmp(TEXT("Resources/Back/Back.bmp"));
+
+}
 
 void CScene::Tick(float dt)
 {
@@ -72,6 +58,39 @@ void CScene::Tick(float dt)
 
 void CScene::Render(HDC hdc)
 {
+    BitBlt(BackBuffer->GetDC(), 0, 0, WND_WIDTH, WND_HEIGHT, Erase->GetDC(), 0, 0, SRCCOPY);
+
+    Rectangle(BackBuffer->GetDC(), 50, 50, 100, 100);
+
+    BitBlt(hdc, 0, 0, WND_WIDTH, WND_HEIGHT, BackBuffer->GetDC(), 0, 0, SRCCOPY);
+}
+
+void CScene::Release()
+{
+    CObject::Release();
+
+    // 추가하려는 오브젝트가 존재하는 경우
+    if (CreatedGameObjectList.size() != 0)
+    {
+        for (auto iter = CreatedGameObjectList.begin();
+            iter != CreatedGameObjectList.end(); ++iter)
+        {
+            DeleteObj((*iter));
+        }
+
+        CreatedGameObjectList.clear();
+    }
+
+    // 추가된 오브젝트 해제
+    for (auto usedObj : UsedGameObjectList)
+    {
+        DeleteObj(usedObj);
+    }
+    UsedGameObjectList.clear();
+
+    // Bitmap 객체 해제
+    DeleteObj(Erase);
+    DeleteObj(BackBuffer);
 }
 
 CObject* CScene::FindObject(tstring objName)

@@ -9,6 +9,8 @@ public :
     CGameInstance();
 
 private :
+    HDC Hdc;
+
     // IManagerClass 인터페이스를 구현하는 객체들을 저장합니다.
     map <string, IManagerClass*> ManagerClasses;
 
@@ -45,6 +47,10 @@ public :
             nullptr :
             Cast<ManagerClassType>(iter->second);
     }
+
+public :
+    FORCEINLINE HDC& GetDC()
+    { return Hdc; }
 
 };
 

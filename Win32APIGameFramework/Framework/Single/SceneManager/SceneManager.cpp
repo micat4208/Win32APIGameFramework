@@ -45,3 +45,11 @@ void CSceneManager::Tick(float dt)
 	if (CurrentScene != nullptr)
 		CurrentScene->Tick(dt);
 }
+
+void CSceneManager::Render(HDC hdc)
+{
+	if (CurrentScene != nullptr)
+	{
+		CurrentScene->Render(hdc);
+	}
+}

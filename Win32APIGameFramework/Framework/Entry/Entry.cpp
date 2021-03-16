@@ -33,7 +33,6 @@ int APIENTRY WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance,
 	QueryPerformanceFrequency(&Second);
 	QueryPerformanceCounter(&Time);
 
-	GameInstance = NewObj<CGameInstance>();
 
 #pragma endregion
 
@@ -60,7 +59,7 @@ int APIENTRY WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance,
 		TEXT("Window Title"),
 		WS_OVERLAPPEDWINDOW,
 		CW_USEDEFAULT, CW_USEDEFAULT,
-		800, 640,
+		WND_WIDTH, WND_HEIGHT,
 		NULL,
 		NULL,
 		hInstance,
@@ -74,7 +73,11 @@ int APIENTRY WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance,
 #pragma region 5. 메시지 루프 처리
 	//while (GetMessage(&Msg, NULL, NULL, NULL))
 
+	GameInstance = NewObj<CGameInstance>();
+
 	Msg.message = WM_NULL;
+
+
 
 	while (Msg.message != WM_QUIT)
 	{
@@ -97,6 +100,7 @@ int APIENTRY WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance,
 			if (totalDt >= targetDt)
 			{
 				CSceneManager::Instance()->Tick(totalDt);
+				CSceneManager::Instance()->Render(GameInstance->GetDC());
 
 				totalDt = 0.0f;
 			}

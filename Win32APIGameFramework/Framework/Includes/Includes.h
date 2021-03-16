@@ -17,6 +17,13 @@ using namespace std;
 #define tstring string
 #endif
 
+#ifndef WND_DEF
+#define WND_DEF
+
+#define WND_WIDTH		800
+#define WND_HEIGHT		600
+#endif
+
 
 
 // Globals...

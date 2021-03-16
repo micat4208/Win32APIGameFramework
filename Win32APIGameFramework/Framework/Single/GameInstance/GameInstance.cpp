@@ -9,6 +9,7 @@ CGameInstance::CGameInstance()
 void CGameInstance::Initialize()
 {
 	CObject::Initialize();
+	Hdc = ::GetDC(Hwnd);
 
 	RegisterManagerClass<CSceneManager>();
 }
@@ -28,4 +29,5 @@ void CGameInstance::Release()
 	ManagerClasses.clear();
 
 	GameInstance = nullptr;
+	ReleaseDC(Hwnd, Hdc);
 }

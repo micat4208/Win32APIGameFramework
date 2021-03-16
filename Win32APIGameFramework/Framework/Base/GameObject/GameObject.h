@@ -1,10 +1,20 @@
 #pragma once
 #include "../Object/Object.h"
+#include "../Component/RenderComponent/RenderComponent.h"
 #include "../../Structrues/Vector2/Vector2.h"
 
 class CGameObject : 
 	public CObject
 {
+
+private :
+	// 추가시킬 컴포넌트를 나타냅니다.
+	list<CComponent*> CreatedComponents;
+
+	// 추가되어 사용되는 컴포넌트를 나타냅니다.
+	list<CComponent*> UsedComponents;
+
+
 protected :
 	// 오브젝트의 이름
 	tstring Name;
@@ -42,6 +52,62 @@ public :
 	virtual void OnDestory();
 
 	virtual void Release() override;
+
+	// 컴포넌트를 추가합니다.
+	template <typename ComponentClassType>
+	ComponentClassType* AddComponent()
+	{
+		// CComponent 클래스를 상속받지 않는다면 컴포넌트를 생성하지 않습니다.
+		if (!IsA<CComponent, ComponentClassType>()) return nullptr;
+
+		// 컴포넌트 생성
+		CComponent* newComponent = NewObj<ComponentClassType>();
+
+		// 컴포넌트를 소유하는 객체를 지정합니다.
+		newComponent->SetOwner(this);
+		CreatedComponents.push_back(newComponent);
+
+		// 만약 추가하는 컴포넌트가 RenderComponent 라면
+		if (IsA<CRenderComponent, ComponentClassType>())
+			RegisterNewRenderComponent(newComponent);
+
+		return Cast<ComponentClassType>(newComponent);
+	}
+
+	// 추가된 컴포넌트를 얻습니다.
+	template<typename ComponentClassType>
+	ComponentClassType* GetComponent() const
+	{
+		// 찾을 컴포넌트 타입 이름을 저장합니다.
+		tstring targetTypeName = typeid(ComponentClassType).name();
+
+		for (auto iter = CreatedComponents.begin();
+			iter != CreatedComponents.end(); ++iter)
+		{
+			// 컴포넌트의 이름을 저장합니다.
+			tstring componentTypeName = typeid((*iter)).name();
+
+			// 일치한 이름의 컴포넌트를 찾았다면 반환
+			if (targetTypeName == componentTypeName)
+				return Cast<ComponentClassType>(*iter);
+		}
+
+		for (auto iter = UsedComponents.begin();
+			iter != UsedComponents.begin(); ++iter)
+		{
+			tstring componentTypeName = typeid((*iter)).name();
+
+			// 일치한 이름의 컴포넌트를 찾았다면 반환
+			if (targetTypeName == componentTypeName)
+				return Cast<ComponentClassType>(*iter);
+		}
+
+		// 일치하는 컴포넌트를 찾지 못했다면
+		return nullptr;
+	}
+
+private :
+	void RegisterNewRenderComponent(CRenderComponent* newRenderComponent);
 
 
 public :

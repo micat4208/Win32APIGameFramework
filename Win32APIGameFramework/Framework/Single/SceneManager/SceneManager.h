@@ -18,6 +18,7 @@ public :
     virtual void ReleaseManagerClass() override;
 
     void Tick(float dt);
+    void Render(HDC hdc);
 
 public :
     template<typename SceneType>

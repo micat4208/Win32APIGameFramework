@@ -20,8 +20,11 @@ private :
     // 실제 그리기 작업이 진행되는 RenderComponent 를 저장할 리스트
     list<class CRenderComponent*> UsedRenderComponents;
 
-
     class CBitmap* Erase, * BackBuffer;
+
+public :
+    // UsedRenderComponents 에 추가된 요소들의 정렬이 필요함을 나타냅니다.
+    bool bNeedSort;
 
 
 public :

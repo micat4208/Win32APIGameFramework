@@ -1,6 +1,6 @@
 #include "GameScene.h"
 
-#include "../../GameObjects/PlayerableCharacter/PlayerableCharacter.h"
+#include "../../GameObjects/Characters/PlayerableCharacter/PlayerableCharacter.h"
 
 void CGameScene::Initialize()
 {

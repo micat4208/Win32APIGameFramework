@@ -148,8 +148,11 @@
     <ClCompile Include="Framework\Entry\Entry.cpp" />
     <ClCompile Include="Framework\Single\GameInstance\GameInstance.cpp" />
     <ClCompile Include="Framework\Single\SceneManager\SceneManager.cpp" />
+    <ClCompile Include="Framework\Statics\GameplayStatics.cpp" />
     <ClCompile Include="Framework\Structrues\Vector2\Vector2.cpp" />
-    <ClCompile Include="Game\GameObjects\PlayerableCharacter\PlayerableCharacter.cpp" />
+    <ClCompile Include="Game\Components\CharacterRenderer\CharacterRenderer.cpp" />
+    <ClCompile Include="Game\GameObjects\Characters\Character.cpp" />
+    <ClCompile Include="Game\GameObjects\Characters\PlayerableCharacter\PlayerableCharacter.cpp" />
     <ClCompile Include="Game\Scenes\GameScene\GameScene.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -165,9 +168,12 @@
     <ClInclude Include="Framework\Single\GameInstance\GameInstance.h" />
     <ClInclude Include="Framework\Single\ManagerClassBase\ManagerClassBase.h" />
     <ClInclude Include="Framework\Single\SceneManager\SceneManager.h" />
+    <ClInclude Include="Framework\Statics\GameplayStatics.h" />
     <ClInclude Include="Framework\Structrues\Math\Math.h" />
     <ClInclude Include="Framework\Structrues\Vector2\Vector2.h" />
-    <ClInclude Include="Game\GameObjects\PlayerableCharacter\PlayerableCharacter.h" />
+    <ClInclude Include="Game\Components\CharacterRenderer\CharacterRenderer.h" />
+    <ClInclude Include="Game\GameObjects\Characters\Character.h" />
+    <ClInclude Include="Game\GameObjects\Characters\PlayerableCharacter\PlayerableCharacter.h" />
     <ClInclude Include="Game\Scenes\GameScene\GameScene.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

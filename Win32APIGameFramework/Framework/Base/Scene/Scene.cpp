@@ -58,9 +58,31 @@ void CScene::Tick(float dt)
 
 void CScene::Render(HDC hdc)
 {
+    if (CreatedRenderComponents.size() > 0)
+    {
+        bNeedSort = true;
+
+        for (auto renderComponent : CreatedRenderComponents)
+            UsedRenderComponents.push_back(renderComponent);
+        CreatedRenderComponents.clear();
+    }
+    
+    if (bNeedSort)
+    {
+        UsedRenderComponents.sort([](CRenderComponent* first, CRenderComponent* second) 
+            { return first->GetSortingOrder() < second->GetSortingOrder(); });
+
+        bNeedSort = false;
+    }
+
     BitBlt(BackBuffer->GetDC(), 0, 0, WND_WIDTH, WND_HEIGHT, Erase->GetDC(), 0, 0, SRCCOPY);
 
-    Rectangle(BackBuffer->GetDC(), 50, 50, 100, 100);
+    for (auto renderComponent : UsedRenderComponents)
+    {
+        if (renderComponent->GetOwner()->bBeDestroy) continue;
+        if (!renderComponent->bUseRender) continue;
+        renderComponent->Render(BackBuffer->GetDC());
+    }
 
     BitBlt(hdc, 0, 0, WND_WIDTH, WND_HEIGHT, BackBuffer->GetDC(), 0, 0, SRCCOPY);
 }

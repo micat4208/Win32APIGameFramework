@@ -19,5 +19,11 @@ public :
 public :
     virtual void Render(HDC hdc) PURE;
 
+public :
+    void SetSortingOrder(__int32 order);
+
+    FORCEINLINE __int32 GetSortingOrder() const
+    { return SortingOrder; }
+
 };
 

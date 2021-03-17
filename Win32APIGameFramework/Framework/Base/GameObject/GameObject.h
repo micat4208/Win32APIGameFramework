@@ -69,7 +69,7 @@ public :
 
 		// 만약 추가하는 컴포넌트가 RenderComponent 라면
 		if (IsA<CRenderComponent, ComponentClassType>())
-			RegisterNewRenderComponent(newComponent);
+			RegisterNewRenderComponent(Cast<CRenderComponent>(newComponent));
 
 		return Cast<ComponentClassType>(newComponent);
 	}

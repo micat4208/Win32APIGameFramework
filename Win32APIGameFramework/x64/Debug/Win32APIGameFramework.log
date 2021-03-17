@@ -1,2 +1,10 @@
-﻿  Entry.cpp
+﻿  CharacterRenderer.cpp
+C:\Users\SBSGAME\Desktop\Share\GameProgramming\GameProgramming5\Win32API\Game\Win32APIGameFramework\Win32APIGameFramework\Game\Components\CharacterRenderer\CharacterRenderer.cpp(22,12): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\SBSGAME\Desktop\Share\GameProgramming\GameProgramming5\Win32API\Game\Win32APIGameFramework\Win32APIGameFramework\Game\Components\CharacterRenderer\CharacterRenderer.cpp(21,12): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\SBSGAME\Desktop\Share\GameProgramming\GameProgramming5\Win32API\Game\Win32APIGameFramework\Win32APIGameFramework\Game\Components\CharacterRenderer\CharacterRenderer.cpp(20,12): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\SBSGAME\Desktop\Share\GameProgramming\GameProgramming5\Win32API\Game\Win32APIGameFramework\Win32APIGameFramework\Game\Components\CharacterRenderer\CharacterRenderer.cpp(19,12): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\SBSGAME\Desktop\Share\GameProgramming\GameProgramming5\Win32API\Game\Win32APIGameFramework\Win32APIGameFramework\Game\Components\CharacterRenderer\CharacterRenderer.cpp(41,71): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\SBSGAME\Desktop\Share\GameProgramming\GameProgramming5\Win32API\Game\Win32APIGameFramework\Win32APIGameFramework\Game\Components\CharacterRenderer\CharacterRenderer.cpp(41,42): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\SBSGAME\Desktop\Share\GameProgramming\GameProgramming5\Win32API\Game\Win32APIGameFramework\Win32APIGameFramework\Game\Components\CharacterRenderer\CharacterRenderer.cpp(42,35): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\SBSGAME\Desktop\Share\GameProgramming\GameProgramming5\Win32API\Game\Win32APIGameFramework\Win32APIGameFramework\Game\Components\CharacterRenderer\CharacterRenderer.cpp(42,23): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
   Win32APIGameFramework.vcxproj -> C:\Users\SBSGAME\Desktop\Share\GameProgramming\GameProgramming5\Win32API\Game\Win32APIGameFramework\x64\Debug\Win32APIGameFramework.exe

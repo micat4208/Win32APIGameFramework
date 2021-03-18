@@ -60,6 +60,15 @@
     <ClCompile Include="Framework\Statics\GameplayStatics.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="Game\GameObjects\Bullet\Bullet.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Components\BulletRenderer\BulletRenderer.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Components\PlayerAttack\PlayerAttack.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Framework\Base\Object\Object.h">
@@ -117,6 +126,15 @@
       <Filter>헤더 파일</Filter>
     </ClInclude>
     <ClInclude Include="Framework\Statics\GameplayStatics.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\GameObjects\Bullet\Bullet.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Components\BulletRenderer\BulletRenderer.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Components\PlayerAttack\PlayerAttack.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
   </ItemGroup>

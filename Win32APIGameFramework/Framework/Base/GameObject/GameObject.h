@@ -79,13 +79,15 @@ public :
 	ComponentClassType* GetComponent() const
 	{
 		// 찾을 컴포넌트 타입 이름을 저장합니다.
-		tstring targetTypeName = typeid(ComponentClassType).name();
+		tstring targetTypeName = ToTString(typeid(ComponentClassType).name());
+
 
 		for (auto iter = CreatedComponents.begin();
 			iter != CreatedComponents.end(); ++iter)
 		{
 			// 컴포넌트의 이름을 저장합니다.
-			tstring componentTypeName = typeid((*iter)).name();
+			tstring componentTypeName = ToTString(typeid((**iter)).name());
+
 
 			// 일치한 이름의 컴포넌트를 찾았다면 반환
 			if (targetTypeName == componentTypeName)
@@ -95,7 +97,7 @@ public :
 		for (auto iter = UsedComponents.begin();
 			iter != UsedComponents.begin(); ++iter)
 		{
-			tstring componentTypeName = typeid((*iter)).name();
+			tstring componentTypeName = ToTString(typeid((**iter)).name());
 
 			// 일치한 이름의 컴포넌트를 찾았다면 반환
 			if (targetTypeName == componentTypeName)

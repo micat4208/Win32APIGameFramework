@@ -43,3 +43,10 @@ FORCEINLINE bool IsA()
 template<typename TargetType, typename T>
 FORCEINLINE TargetType* Cast(T* instance)
 { return dynamic_cast<TargetType*>(instance); }
+
+FORCEINLINE tstring ToTString(string str)
+{
+	tstring targetTypeName;
+	targetTypeName.assign(str.begin(), str.end());
+	return targetTypeName;
+}

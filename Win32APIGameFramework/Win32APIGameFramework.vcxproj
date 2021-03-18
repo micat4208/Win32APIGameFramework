@@ -150,7 +150,10 @@
     <ClCompile Include="Framework\Single\SceneManager\SceneManager.cpp" />
     <ClCompile Include="Framework\Statics\GameplayStatics.cpp" />
     <ClCompile Include="Framework\Structrues\Vector2\Vector2.cpp" />
+    <ClCompile Include="Game\Components\BulletRenderer\BulletRenderer.cpp" />
     <ClCompile Include="Game\Components\CharacterRenderer\CharacterRenderer.cpp" />
+    <ClCompile Include="Game\Components\PlayerAttack\PlayerAttack.cpp" />
+    <ClCompile Include="Game\GameObjects\Bullet\Bullet.cpp" />
     <ClCompile Include="Game\GameObjects\Characters\Character.cpp" />
     <ClCompile Include="Game\GameObjects\Characters\PlayerableCharacter\PlayerableCharacter.cpp" />
     <ClCompile Include="Game\Scenes\GameScene\GameScene.cpp" />
@@ -171,7 +174,10 @@
     <ClInclude Include="Framework\Statics\GameplayStatics.h" />
     <ClInclude Include="Framework\Structrues\Math\Math.h" />
     <ClInclude Include="Framework\Structrues\Vector2\Vector2.h" />
+    <ClInclude Include="Game\Components\BulletRenderer\BulletRenderer.h" />
     <ClInclude Include="Game\Components\CharacterRenderer\CharacterRenderer.h" />
+    <ClInclude Include="Game\Components\PlayerAttack\PlayerAttack.h" />
+    <ClInclude Include="Game\GameObjects\Bullet\Bullet.h" />
     <ClInclude Include="Game\GameObjects\Characters\Character.h" />
     <ClInclude Include="Game\GameObjects\Characters\PlayerableCharacter\PlayerableCharacter.h" />
     <ClInclude Include="Game\Scenes\GameScene\GameScene.h" />

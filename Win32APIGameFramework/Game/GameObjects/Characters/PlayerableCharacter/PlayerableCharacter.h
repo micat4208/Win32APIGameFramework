@@ -11,10 +11,24 @@
 class CPlayerableCharacter final :
 	public CCharacter
 {
+private :
+	class CPlayerAttack* PlayerAttack;
+
+	FVector2 MousePosition;
+	
+	
+
 public :
 	virtual void Initialize() override;
 	virtual void Start() override;
 	virtual void Tick(float dt) override;
+
+private :
+	void InputKey(float dt);
+
+public :
+	FORCEINLINE class CPlayerAttack* GetPlayerAttack() const
+	{ return PlayerAttack; }
 
 
 };

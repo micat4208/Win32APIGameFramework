@@ -1,5 +1,6 @@
 #pragma once
 #include "../Object/Object.h"
+#include "../../Structrues/Vector2/Vector2.h"
 
 // 어떠한 물체의 기능을 나타낼 때 사용되는 클래스
 class CComponent abstract :

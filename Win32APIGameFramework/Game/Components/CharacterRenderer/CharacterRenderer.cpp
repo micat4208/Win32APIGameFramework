@@ -1,8 +1,8 @@
 #include "CharacterRenderer.h"
 
-#include "../../../Framework/Statics/GameplayStatics.h"
+#include "../../GameObjects/Characters/PlayerableCharacter/PlayerableCharacter.h"
 
-#include "../../GameObjects/Characters/Character.h"
+#include "../../Components/PlayerAttack/PlayerAttack.h"
 
 
 CCharacterRenderer::CCharacterRenderer()
@@ -23,22 +23,17 @@ void CCharacterRenderer::Render(HDC hdc)
 
 	if (bDrawLine)
 	{
-		// 마우스 위치를 얻습니다.
-		FVector2 mousePosition = CGameplayStatics::GetMousePosition();
+		auto playerAttack = Cast<CPlayerableCharacter>(GetOwner())->
+			GetPlayerAttack();
+		FVector2 direction = playerAttack->AttackDirection;
 
-		FVector2 direction = FVector2::Direction(
-			GetOwner()->GetPosition(), mousePosition);
-
-		LOG(direction.ToString().c_str());
-
-		// 그릴 선의 길이를 설정합니다.
-		float length = 30.0f;
-		
 		// 선의 끝 위치
-		FVector2 endPoint = (direction * length) + GetOwner()->GetPosition();
+		FVector2 endPoint = (direction * playerAttack->Length) + GetOwner()->GetPosition();
 
 		// 선을 그립니다.
-		MoveToEx(hdc, GetOwner()->GetPosition().X, GetOwner()->GetPosition().Y, NULL);
+		MoveToEx(hdc, 
+			GetOwner()->GetPosition().X, 
+			GetOwner()->GetPosition().Y, NULL);
 		LineTo(hdc, endPoint.X, endPoint.Y);
 	}
 }

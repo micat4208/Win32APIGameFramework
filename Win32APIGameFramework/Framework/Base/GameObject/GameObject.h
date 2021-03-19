@@ -95,7 +95,7 @@ public :
 		}
 
 		for (auto iter = UsedComponents.begin();
-			iter != UsedComponents.begin(); ++iter)
+			iter != UsedComponents.end(); ++iter)
 		{
 			tstring componentTypeName = ToTString(typeid((**iter)).name());
 

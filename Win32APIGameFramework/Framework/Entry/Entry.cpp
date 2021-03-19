@@ -2,6 +2,7 @@
 
 #include "../Single/GameInstance/GameInstance.h"
 #include "../Single/SceneManager/SceneManager.h"
+#include "../Single/CollisionManager/CollisionManager.h"
 
 class CGameInstance* GameInstance;
 HWND Hwnd;
@@ -101,6 +102,9 @@ int APIENTRY WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance,
 			{
 				CSceneManager::Instance()->Tick(totalDt);
 				CSceneManager::Instance()->Render(GameInstance->GetDC());
+
+				// 충돌체 검사
+				CCollisionManager::Instance()->DoCollisionTest();
 
 				totalDt = 0.0f;
 			}

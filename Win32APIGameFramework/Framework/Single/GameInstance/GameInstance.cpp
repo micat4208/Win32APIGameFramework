@@ -1,6 +1,7 @@
 #include "GameInstance.h"
 
 #include "../SceneManager/SceneManager.h"
+#include "../CollisionManager/CollisionManager.h"
 
 CGameInstance::CGameInstance()
 {
@@ -11,6 +12,7 @@ void CGameInstance::Initialize()
 	CObject::Initialize();
 	Hdc = ::GetDC(Hwnd);
 
+	RegisterManagerClass<CCollisionManager>();
 	RegisterManagerClass<CSceneManager>();
 }
 

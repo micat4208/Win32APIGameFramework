@@ -139,6 +139,9 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Framework\Base\Component\Collision\CircleCollision\CircleCollision.cpp" />
+    <ClCompile Include="Framework\Base\Component\Collision\Collision.cpp" />
+    <ClCompile Include="Framework\Base\Component\Collision\RectCollision\RectCollision.cpp" />
     <ClCompile Include="Framework\Base\Component\Component.cpp" />
     <ClCompile Include="Framework\Base\Component\RenderComponent\RenderComponent.cpp" />
     <ClCompile Include="Framework\Base\GameObject\GameObject.cpp" />
@@ -146,6 +149,7 @@
     <ClCompile Include="Framework\Base\Scene\Scene.cpp" />
     <ClCompile Include="Framework\Bitmap\Bitmap.cpp" />
     <ClCompile Include="Framework\Entry\Entry.cpp" />
+    <ClCompile Include="Framework\Single\CollisionManager\CollisionManager.cpp" />
     <ClCompile Include="Framework\Single\GameInstance\GameInstance.cpp" />
     <ClCompile Include="Framework\Single\SceneManager\SceneManager.cpp" />
     <ClCompile Include="Framework\Statics\GameplayStatics.cpp" />
@@ -159,15 +163,20 @@
     <ClCompile Include="Game\Scenes\GameScene\GameScene.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Framework\Base\Component\Collision\CircleCollision\CircleCollision.h" />
+    <ClInclude Include="Framework\Base\Component\Collision\Collision.h" />
+    <ClInclude Include="Framework\Base\Component\Collision\RectCollision\RectCollision.h" />
     <ClInclude Include="Framework\Base\Component\Component.h" />
     <ClInclude Include="Framework\Base\Component\RenderComponent\RenderComponent.h" />
     <ClInclude Include="Framework\Base\GameObject\GameObject.h" />
     <ClInclude Include="Framework\Base\Object\Object.h" />
     <ClInclude Include="Framework\Base\Scene\Scene.h" />
     <ClInclude Include="Framework\Bitmap\Bitmap.h" />
+    <ClInclude Include="Framework\Enums\CollisionType.h" />
     <ClInclude Include="Framework\Includes\Includes.h" />
     <ClInclude Include="Framework\Includes\Log.h" />
     <ClInclude Include="Framework\Interfaces\ManagerClass.h" />
+    <ClInclude Include="Framework\Single\CollisionManager\CollisionManager.h" />
     <ClInclude Include="Framework\Single\GameInstance\GameInstance.h" />
     <ClInclude Include="Framework\Single\ManagerClassBase\ManagerClassBase.h" />
     <ClInclude Include="Framework\Single\SceneManager\SceneManager.h" />

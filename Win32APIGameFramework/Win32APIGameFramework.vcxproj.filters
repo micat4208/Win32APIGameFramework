@@ -69,6 +69,18 @@
     <ClCompile Include="Game\Components\PlayerAttack\PlayerAttack.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="Framework\Base\Component\Collision\Collision.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="Framework\Base\Component\Collision\CircleCollision\CircleCollision.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="Framework\Single\CollisionManager\CollisionManager.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="Framework\Base\Component\Collision\RectCollision\RectCollision.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Framework\Base\Object\Object.h">
@@ -135,6 +147,21 @@
       <Filter>헤더 파일</Filter>
     </ClInclude>
     <ClInclude Include="Game\Components\PlayerAttack\PlayerAttack.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Framework\Enums\CollisionType.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Framework\Base\Component\Collision\Collision.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Framework\Base\Component\Collision\CircleCollision\CircleCollision.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Framework\Single\CollisionManager\CollisionManager.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Framework\Base\Component\Collision\RectCollision\RectCollision.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
   </ItemGroup>

@@ -37,6 +37,23 @@ void CScene::Tick(float dt)
         DestroyedGameObjectList.clear();
     }
 
+
+    if (CreatedRenderComponents.size() > 0)
+    {
+        bNeedSort = true;
+
+        for (auto renderComponent : CreatedRenderComponents)
+            UsedRenderComponents.push_back(renderComponent);
+        CreatedRenderComponents.clear();
+    }
+
+    if (DestroyedRenderComponent.size() > 0)
+    {
+        for (auto renderComponent : DestroyedRenderComponent)
+            UsedRenderComponents.remove(renderComponent);
+        DestroyedRenderComponent.clear();
+    }
+
     // 실제 사용중인 게임 오브젝트들의 Tick() 메서드 호출
     for (auto gameObj : UsedGameObjectList)
     {
@@ -54,18 +71,12 @@ void CScene::Tick(float dt)
             gameObj->Tick(dt);
     }
 
+    
+
 }
 
 void CScene::Render(HDC hdc)
 {
-    if (CreatedRenderComponents.size() > 0)
-    {
-        bNeedSort = true;
-
-        for (auto renderComponent : CreatedRenderComponents)
-            UsedRenderComponents.push_back(renderComponent);
-        CreatedRenderComponents.clear();
-    }
     
     if (bNeedSort)
     {

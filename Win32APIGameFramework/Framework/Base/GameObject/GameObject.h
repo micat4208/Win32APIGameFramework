@@ -1,6 +1,11 @@
 #pragma once
 #include "../Object/Object.h"
+
+#include "../../Single/CollisionManager/CollisionManager.h"
+
 #include "../Component/RenderComponent/RenderComponent.h"
+#include "../Component/Collision/Collision.h"
+
 #include "../../Structrues/Vector2/Vector2.h"
 
 class CGameObject : 
@@ -13,6 +18,9 @@ private :
 
 	// 추가되어 사용되는 컴포넌트를 나타냅니다.
 	list<CComponent*> UsedComponents;
+
+	// 제거될 컴포넌트를 나타냅니다.
+	list<CComponent*> DestroyedComponents;
 
 
 protected :
@@ -71,6 +79,10 @@ public :
 		if (IsA<CRenderComponent, ComponentClassType>())
 			RegisterNewRenderComponent(Cast<CRenderComponent>(newComponent));
 
+		// 만약 추가하려는 컴포넌트가 Collision Component 라면
+		else (IsA<CCollision, ComponentClassType>())
+			CCollisionManager::Instance()->RegisterCollision(Cast<CCollision>(newComponent));
+
 		return Cast<ComponentClassType>(newComponent);
 	}
 
@@ -107,6 +119,12 @@ public :
 		// 일치하는 컴포넌트를 찾지 못했다면
 		return nullptr;
 	}
+
+	// 컴포넌트를 제거합니다.
+	FORCEINLINE void RemoveComponent(class CComponent* component)
+	{ DestroyedComponents.push_back(component); }
+
+
 
 private :
 	void RegisterNewRenderComponent(CRenderComponent* newRenderComponent);

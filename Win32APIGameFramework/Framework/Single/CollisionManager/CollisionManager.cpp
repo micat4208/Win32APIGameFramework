@@ -29,6 +29,64 @@ bool CCollisionManager::DoCollisionTestRectToRect(CCollision* collision1, CColli
 	return true;
 }
 
+bool CCollisionManager::DoCollisionTestRectToCircle(CCollision* rect, CCollision* circle)
+{
+	// 원의 반지름
+	float circleRadius = ((circle->GetRect().right) - (circle->GetRect().left)) * 0.5f;
+
+	// 원의 중심 위치
+	FVector2 circleCenter = FVector2(
+		circle->GetRect().right - circleRadius,
+		circle->GetRect().bottom - circleRadius);
+
+	// 원의 중점의 X 좌표가 사각형의 가로 영역 내에 위치하는지,
+	// 원의 중점의 Y 좌표가 사각형의 세로 영역 내에 위치하는지 검사합니다.
+	if ((rect->GetRect().left <= circleCenter.X && circleCenter.X <= rect->GetRect().right) ||
+		(rect->GetRect().top <= circleCenter.Y && circleCenter.Y <= rect->GetRect().bottom))
+	{
+
+		/// 원의 반지름 길이만큼 확장된 사각형을 구합니다.
+		RECT rc = {
+			rect->GetRect().left - circleRadius,
+			rect->GetRect().top - circleRadius,
+			rect->GetRect().right + circleRadius,
+			rect->GetRect().bottom + circleRadius,
+		};
+		
+		/// 원의 중심점이 확장된 사각형 내부에 위치하지 않는지 확인합니다.
+		if		(circleCenter.X < rc.left)
+			return false;
+		else if (circleCenter.X > rc.right)
+			return false;
+		else if (circleCenter.Y < rc.top)
+			return false;
+		else if (circleCenter.Y > rc.bottom)
+			return false;
+
+		/// 아니라면 겹침
+		return true;
+	}
+
+	FVector2 rPos[4] =
+	{
+		// 사각형의 좌측 상단
+		FVector2(rect->GetRect().left, rect->GetRect().top),
+		// 사각형의 좌측 하단
+		FVector2(rect->GetRect().left, rect->GetRect().bottom),
+		// 사각형의 우측 상단 
+		FVector2(rect->GetRect().right, rect->GetRect().top),
+		// 사각형의 우측 하단 
+		FVector2(rect->GetRect().right, rect->GetRect().bottom)
+	};
+
+	/// 사각형의 네 꼭지점 중 하나라도 원 내에 위치한다면 겹침
+	for (auto pos : rPos)
+		if (FVector2::Distance(circleCenter, pos) <= circleRadius) return true;
+	
+	/// 아니라면 겹치지 않음.
+	return false;
+}
+
 void CCollisionManager::DoCollisionTest()
 {
 	if (CreatedCollisions.size() != 0)
@@ -80,12 +138,22 @@ void CCollisionManager::DoCollisionTest()
 				}
 				else if ((*iter2)->GetCollisionType() == ECollisionType::Circle)
 				{
+					if (DoCollisionTestRectToCircle(*iter1, *iter2))
+					{
+						(*iter1)->OnOverlapped(*iter2);
+						(*iter2)->OnOverlapped(*iter1);
+					}
 				}
 				break;
 
 			case ECollisionType::Circle:
 				if ((*iter2)->GetCollisionType() == ECollisionType::Rect)
 				{
+					if (DoCollisionTestRectToCircle(*iter2, *iter1))
+					{
+						(*iter1)->OnOverlapped(*iter2);
+						(*iter2)->OnOverlapped(*iter1);
+					}
 				}
 				else if ((*iter2)->GetCollisionType() == ECollisionType::Circle)
 				{
@@ -102,4 +170,14 @@ void CCollisionManager::DoCollisionTest()
 
 	}
 
+}
+
+void CCollisionManager::RegisterCollision(CCollision* collision)
+{
+	CreatedCollisions.push_back(collision);
+}
+
+void CCollisionManager::UnRegisterCollision(CCollision* collision)
+{
+	DestroyedCollisions.push_back(collision);
 }

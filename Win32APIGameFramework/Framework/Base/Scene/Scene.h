@@ -20,6 +20,9 @@ private :
     // 실제 그리기 작업이 진행되는 RenderComponent 를 저장할 리스트
     list<class CRenderComponent*> UsedRenderComponents;
 
+    // 그리기 작업을 중단할 RenderComponent 를 저장할 리스트
+    list<class CRenderComponent*> DestroyedRenderComponent;
+
     class CBitmap* Erase, * BackBuffer;
 
 public :
@@ -72,6 +75,10 @@ public :
     FORCEINLINE void RegisterNewRenderComponent(
         class CRenderComponent* newRenderComponent)
     { CreatedRenderComponents.push_back(newRenderComponent); }
+
+    FORCEINLINE void UnRegisterRenderComponent(
+        class CRenderComponent* renderComponent)
+    { DestroyedRenderComponent.push_back(renderComponent); }
 
 
 };

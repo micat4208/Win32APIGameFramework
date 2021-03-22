@@ -1,23 +1,2 @@
-﻿  Component.cpp
-  RenderComponent.cpp
-  GameObject.cpp
-  Scene.cpp
-  Entry.cpp
-  GameInstance.cpp
-  SceneManager.cpp
-  CharacterRenderer.cpp
-C:\Users\SBSGAME\Desktop\Share\GameProgramming\GameProgramming5\Win32API\Game\Win32APIGameFramework\Win32APIGameFramework\Game\Components\CharacterRenderer\CharacterRenderer.cpp(22,12): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-C:\Users\SBSGAME\Desktop\Share\GameProgramming\GameProgramming5\Win32API\Game\Win32APIGameFramework\Win32APIGameFramework\Game\Components\CharacterRenderer\CharacterRenderer.cpp(21,12): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-C:\Users\SBSGAME\Desktop\Share\GameProgramming\GameProgramming5\Win32API\Game\Win32APIGameFramework\Win32APIGameFramework\Game\Components\CharacterRenderer\CharacterRenderer.cpp(20,12): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-C:\Users\SBSGAME\Desktop\Share\GameProgramming\GameProgramming5\Win32API\Game\Win32APIGameFramework\Win32APIGameFramework\Game\Components\CharacterRenderer\CharacterRenderer.cpp(19,12): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-C:\Users\SBSGAME\Desktop\Share\GameProgramming\GameProgramming5\Win32API\Game\Win32APIGameFramework\Win32APIGameFramework\Game\Components\CharacterRenderer\CharacterRenderer.cpp(36,29): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-C:\Users\SBSGAME\Desktop\Share\GameProgramming\GameProgramming5\Win32API\Game\Win32APIGameFramework\Win32APIGameFramework\Game\Components\CharacterRenderer\CharacterRenderer.cpp(35,29): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-C:\Users\SBSGAME\Desktop\Share\GameProgramming\GameProgramming5\Win32API\Game\Win32APIGameFramework\Win32APIGameFramework\Game\Components\CharacterRenderer\CharacterRenderer.cpp(37,35): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-C:\Users\SBSGAME\Desktop\Share\GameProgramming\GameProgramming5\Win32API\Game\Win32APIGameFramework\Win32APIGameFramework\Game\Components\CharacterRenderer\CharacterRenderer.cpp(37,23): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  PlayerAttack.cpp
-  Bullet.cpp
-  Character.cpp
-  PlayerableCharacter.cpp
-  GameScene.cpp
-  코드를 생성하고 있습니다...
+﻿  GameScene.cpp
   Win32APIGameFramework.vcxproj -> C:\Users\SBSGAME\Desktop\Share\GameProgramming\GameProgramming5\Win32API\Game\Win32APIGameFramework\x64\Debug\Win32APIGameFramework.exe

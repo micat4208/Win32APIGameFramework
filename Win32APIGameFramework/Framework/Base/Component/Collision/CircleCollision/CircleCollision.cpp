@@ -11,9 +11,9 @@ void CCircleCollision::SetRadius(float radius)
 {
 	FVector2 center = GetOwner()->GetPosition();
 	rc = {
-		center.X - radius,
-		center.Y - radius,
-		center.X + radius,
-		center.Y + radius
+		(LONG)(center.X - radius),
+		(LONG)(center.Y - radius),
+		(LONG)(center.X + radius),
+		(LONG)(center.Y + radius)
 	};
 }

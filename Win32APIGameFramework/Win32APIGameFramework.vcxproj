@@ -159,6 +159,7 @@
     <ClCompile Include="Game\Components\PlayerAttack\PlayerAttack.cpp" />
     <ClCompile Include="Game\GameObjects\Bullet\Bullet.cpp" />
     <ClCompile Include="Game\GameObjects\Characters\Character.cpp" />
+    <ClCompile Include="Game\GameObjects\Characters\EnemyCharacter\EnemyCharacter.cpp" />
     <ClCompile Include="Game\GameObjects\Characters\PlayerableCharacter\PlayerableCharacter.cpp" />
     <ClCompile Include="Game\Scenes\GameScene\GameScene.cpp" />
   </ItemGroup>
@@ -188,6 +189,7 @@
     <ClInclude Include="Game\Components\PlayerAttack\PlayerAttack.h" />
     <ClInclude Include="Game\GameObjects\Bullet\Bullet.h" />
     <ClInclude Include="Game\GameObjects\Characters\Character.h" />
+    <ClInclude Include="Game\GameObjects\Characters\EnemyCharacter\EnemyCharacter.h" />
     <ClInclude Include="Game\GameObjects\Characters\PlayerableCharacter\PlayerableCharacter.h" />
     <ClInclude Include="Game\Scenes\GameScene\GameScene.h" />
   </ItemGroup>

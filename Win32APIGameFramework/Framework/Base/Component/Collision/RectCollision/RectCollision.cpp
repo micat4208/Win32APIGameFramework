@@ -9,10 +9,11 @@ CRectCollision::CRectCollision()
 void CRectCollision::SetBound(FVector2 min, FVector2 max)
 {
 	rc = {
-		min.X,
-		min.Y,
-		max.X,
-		max.Y };
+		(LONG)(min.X),
+		(LONG)(min.Y),
+		(LONG)(max.X),
+		(LONG)(max.Y) 
+	};
 }
 
 void CRectCollision::SetBound(float width, float height)
@@ -20,9 +21,9 @@ void CRectCollision::SetBound(float width, float height)
 	FVector2 center = GetOwner()->GetPosition();
 	rc =
 	{
-		center.X - width * 0.5f,
-		center.Y - height * 0.5f,
-		center.X + width * 0.5f,
-		center.Y + height * 0.5f
+		(LONG)(center.X - width * 0.5f),
+		(LONG)(center.Y - height * 0.5f),
+		(LONG)(center.X + width * 0.5f),
+		(LONG)(center.Y + height * 0.5f)
 	};
 }

@@ -1,3 +1,4 @@
+
 #include "CollisionManager.h"
 
 #include "../../Base/GameObject/GameObject.h"
@@ -91,9 +92,10 @@ void CCollisionManager::DoCollisionTest()
 {
 	if (CreatedCollisions.size() != 0)
 	{
+
 		for (auto collision : CreatedCollisions)
 			UsedCollisions.push_back(collision);
-		UsedCollisions.clear();
+		CreatedCollisions.clear();
 	}
 
 	if (DestroyedCollisions.size() != 0)
@@ -106,6 +108,7 @@ void CCollisionManager::DoCollisionTest()
 	// 등록된 충돌체가 2 개 미만이라면 검사하지 않습니다.
 	if (UsedCollisions.size() < 2) return;
 
+
 	auto iter1 = UsedCollisions.begin();
 	auto iter1Fin = --UsedCollisions.end();
 
@@ -117,10 +120,12 @@ void CCollisionManager::DoCollisionTest()
 		auto iter2Fin = UsedCollisions.end();
 
 		// 충돌체의 Start() 메서드가 호출되지 않았다면 충돌 검사 X
+		if ((*iter1)->bBeDestroy) continue;
 		if (!(*iter1)->bIsStarted) continue;
 			
 		for (; iter2 != iter2Fin; ++iter2)
 		{
+			if ((*iter2)->bBeDestroy) continue;
 			if (!(*iter2)->bIsStarted) continue;
 			if ((*iter1)->GetOwner()->bBeDestroy || (*iter2)->GetOwner()->bBeDestroy) continue;
 
@@ -157,6 +162,7 @@ void CCollisionManager::DoCollisionTest()
 				}
 				else if ((*iter2)->GetCollisionType() == ECollisionType::Circle)
 				{
+
 					if (DoCollisionTestCircleToCircle((*iter1), (*iter2)))
 					{
 						(*iter1)->OnOverlapped(*iter2);

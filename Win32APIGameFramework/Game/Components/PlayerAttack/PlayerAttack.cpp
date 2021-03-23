@@ -7,11 +7,15 @@
 
 void CPlayerAttack::Initialize()
 {
+	__super::Initialize();
+
 	Length = 50.0f;
 }
 
 void CPlayerAttack::Tick(float dt)
 {
+	__super::Tick(dt);
+
 	// 왼쪽 마우스 클릭 입력 -> 미사일 발사
 	if (GetAsyncKeyState(VK_LBUTTON))
 		FireMissile();

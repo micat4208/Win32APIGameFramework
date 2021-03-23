@@ -80,7 +80,7 @@ public :
 			RegisterNewRenderComponent(Cast<CRenderComponent>(newComponent));
 
 		// 만약 추가하려는 컴포넌트가 Collision Component 라면
-		else (IsA<CCollision, ComponentClassType>())
+		else if (IsA<CCollision, ComponentClassType>())
 			CCollisionManager::Instance()->RegisterCollision(Cast<CCollision>(newComponent));
 
 		return Cast<ComponentClassType>(newComponent);
@@ -121,8 +121,7 @@ public :
 	}
 
 	// 컴포넌트를 제거합니다.
-	FORCEINLINE void RemoveComponent(class CComponent* component)
-	{ DestroyedComponents.push_back(component); }
+	void RemoveComponent(class CComponent* component);
 
 
 

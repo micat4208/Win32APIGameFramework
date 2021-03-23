@@ -5,6 +5,8 @@ class CBullet final :
     public CGameObject
 {
 private :
+    class CCircleCollision* BulletCollision;
+
     FVector2 Direction;
     float Speed;
 

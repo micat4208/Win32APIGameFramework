@@ -11,6 +11,8 @@ protected :
     class CGameObject* Owner;
 
 public :
+    bool bBeDestroy;
+
     // Tick() 메서드를 사용하도록 할 것인지를 결정합니다.
     bool bCanEverTick;
 

@@ -90,6 +90,7 @@ void CScene::Render(HDC hdc)
 
     for (auto renderComponent : UsedRenderComponents)
     {
+        if (renderComponent->bBeDestroy) continue;
         if (renderComponent->GetOwner()->bBeDestroy) continue;
         if (!renderComponent->bUseRender) continue;
         renderComponent->Render(BackBuffer->GetDC());

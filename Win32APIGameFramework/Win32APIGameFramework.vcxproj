@@ -154,6 +154,7 @@
     <ClCompile Include="Framework\Single\SceneManager\SceneManager.cpp" />
     <ClCompile Include="Framework\Statics\GameplayStatics.cpp" />
     <ClCompile Include="Framework\Structrues\Vector2\Vector2.cpp" />
+    <ClCompile Include="Framework\Util\ObjectPool.cpp" />
     <ClCompile Include="Game\Components\BulletRenderer\BulletRenderer.cpp" />
     <ClCompile Include="Game\Components\CharacterRenderer\CharacterRenderer.cpp" />
     <ClCompile Include="Game\Components\PlayerAttack\PlayerAttack.cpp" />
@@ -177,6 +178,7 @@
     <ClInclude Include="Framework\Includes\Includes.h" />
     <ClInclude Include="Framework\Includes\Log.h" />
     <ClInclude Include="Framework\Interfaces\ManagerClass.h" />
+    <ClInclude Include="Framework\Interfaces\ObjectPoolable.h" />
     <ClInclude Include="Framework\Single\CollisionManager\CollisionManager.h" />
     <ClInclude Include="Framework\Single\GameInstance\GameInstance.h" />
     <ClInclude Include="Framework\Single\ManagerClassBase\ManagerClassBase.h" />
@@ -184,6 +186,7 @@
     <ClInclude Include="Framework\Statics\GameplayStatics.h" />
     <ClInclude Include="Framework\Structrues\Math\Math.h" />
     <ClInclude Include="Framework\Structrues\Vector2\Vector2.h" />
+    <ClInclude Include="Framework\Util\ObjectPool.h" />
     <ClInclude Include="Game\Components\BulletRenderer\BulletRenderer.h" />
     <ClInclude Include="Game\Components\CharacterRenderer\CharacterRenderer.h" />
     <ClInclude Include="Game\Components\PlayerAttack\PlayerAttack.h" />

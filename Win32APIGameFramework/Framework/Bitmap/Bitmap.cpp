@@ -36,7 +36,7 @@ CBitmap* CBitmap::LoadBmp(LPCTSTR path)
     // 로드에 실패했는지 확인합니다.
     if (Bmp == NULL)
     {
-        tstring msg = TEXT("파일을 로드하지 못했습니다.\s");
+        tstring msg = TEXT("파일을 로드하지 못했습니다.\n");
         msg += TEXT("경로 : ");
         msg += path;
 

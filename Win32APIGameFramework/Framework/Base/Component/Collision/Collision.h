@@ -3,10 +3,16 @@
 #include "../../../Enums/CollisionType.h"
 
 
+
 // 충돌체를 나타내기 위한 컴포넌트
 class CCollision abstract :
     public CComponent
 {
+
+public :
+    // 겹침이 발생했을 때 호출됩니다.
+    vector< function<void(CCollision*)> > OverlapEvents;
+
 protected :
     // 충돌체의 영역 정보를 나타냅니다.
     RECT rc;
@@ -15,7 +21,7 @@ protected :
     ECollisionType CollisionType;
 
 public :
-    FORCEINLINE virtual void OnOverlapped(CCollision* other) {}
+    virtual void OnOverlapped(CCollision* other);
 
 public :
     FORCEINLINE ECollisionType GetCollisionType() const
@@ -23,8 +29,5 @@ public :
 
     FORCEINLINE const RECT& GetRect() const
     { return rc; }
-
-    
-
 };
 

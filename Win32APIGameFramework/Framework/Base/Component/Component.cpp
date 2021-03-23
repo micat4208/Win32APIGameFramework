@@ -3,6 +3,7 @@
 
 CComponent::CComponent()
 {
+	bBeDestroy = false;
 	bCanEverTick = true;
 	bIsStarted = false;
 }

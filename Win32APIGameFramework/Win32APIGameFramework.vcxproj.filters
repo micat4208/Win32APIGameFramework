@@ -84,6 +84,9 @@
     <ClCompile Include="Game\GameObjects\Characters\EnemyCharacter\EnemyCharacter.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="Framework\Util\ObjectPool.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Framework\Base\Object\Object.h">
@@ -168,6 +171,12 @@
       <Filter>헤더 파일</Filter>
     </ClInclude>
     <ClInclude Include="Game\GameObjects\Characters\EnemyCharacter\EnemyCharacter.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Framework\Util\ObjectPool.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Framework\Interfaces\ObjectPoolable.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
   </ItemGroup>

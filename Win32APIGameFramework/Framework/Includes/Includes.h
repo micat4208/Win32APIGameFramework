@@ -1,4 +1,8 @@
 #pragma once
+#pragma warning (disable : 4838)
+#pragma warning (disable : 4244)
+
+
 #include <Windows.h>
 #include <iostream>
 #include <combaseapi.h>

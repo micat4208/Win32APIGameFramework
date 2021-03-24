@@ -1,5 +1,10 @@
 #include "GameplayStatics.h"
 
+float CGameplayStatics::GetTime()
+{
+    return (GetTickCount64() - GameStartTime) * 0.001f;
+}
+
 FVector2 CGameplayStatics::GetMousePosition(bool translated)
 {
     // 커서 위치를 저장할 변수

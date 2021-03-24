@@ -7,9 +7,15 @@
 class CGameplayStatics final
 {
 public :
+	// 게임 시작 이후 지난 시간을 반환합니다.
+	static float GetTime();
+
+
 	// 마우스 위치를 반환합니다.
 	/// - translated : 클라이언트 영역 내의 위치로 변환할 것인지를 나타냅니다.
 	static FVector2 GetMousePosition(bool translated = true);
+
+
 
 };
 

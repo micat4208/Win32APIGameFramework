@@ -7,11 +7,15 @@
 class CGameInstance* GameInstance;
 HWND Hwnd;
 
+float GameStartTime;
+
 LRESULT CALLBACK WndProc(HWND hwnd, UINT msg, WPARAM wParam, LPARAM lParam);
 
 int APIENTRY WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance,
 	LPSTR lpszCmdParam, int nCmdShow)
 {
+	srand(GameStartTime = GetTickCount64());
+
 	HWND hWnd;
 	MSG Msg;
 	WNDCLASS WndClass;

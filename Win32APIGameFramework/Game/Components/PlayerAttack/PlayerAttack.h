@@ -8,13 +8,19 @@ class CPlayerAttack :
 public :
     FVector2 AttackDirection;
     float Length;
+    float AttackDelay;
+
+private :
+    class CObjectPool* BulletPool;
 
 public :
     virtual void Initialize() override;
     virtual void Tick(float dt) override;
+    virtual void Release() override;
 
 private :
     void FireMissile();
+
 
 
 

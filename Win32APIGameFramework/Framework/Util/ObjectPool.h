@@ -13,7 +13,14 @@ private :
 
 public :
     // 풀링시킬 새로운 객체를 등록합니다.
-    IObjectPoolable* RegisterRecyclableObject(IObjectPoolable* newRecyclableObject);
+    template<typename T>
+    FORCEINLINE T* RegisterRecyclableObject(IObjectPoolable* newRecyclableObject)
+    {
+        PoolObjects.push_back(newRecyclableObject);
+
+        LOG(TEXT("PoolObjects.size() = ") << PoolObjects.size());
+        return Cast<T>(newRecyclableObject);
+    }
     
     // 재활용된 객체를 얻습니다.
     IObjectPoolable* GetRecycledObject();
@@ -22,6 +29,8 @@ public :
     // - pred : true 라면 poolableObj 를 반환합니다.
     IObjectPoolable* GetRecycledObject(function<bool(IObjectPoolable* poolableObj)> pred);
 
+public :
+    virtual void Release() override;
 
 
 

@@ -22,9 +22,6 @@ public :
 	virtual void Initialize();
 	virtual void Release();
 
-
-	void Test(class CCollision* other);
-
 public :
 	virtual tstring ToString() const;
 };

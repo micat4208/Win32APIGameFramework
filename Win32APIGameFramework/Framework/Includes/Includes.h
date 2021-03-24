@@ -34,6 +34,9 @@ using namespace std;
 extern class CGameInstance* GameInstance;
 extern HWND Hwnd;
 
+// 게임 시작 시간을 저장할 변수
+extern float GameStartTime;
+
 
 // Operators...
 template<typename ParentType, typename ChildType>

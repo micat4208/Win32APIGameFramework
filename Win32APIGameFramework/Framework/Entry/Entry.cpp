@@ -5,6 +5,7 @@
 #include "../Single/CollisionManager/CollisionManager.h"
 
 class CGameInstance* GameInstance;
+struct FMOD_SYSTEM* SoundSystem;
 HWND Hwnd;
 
 float GameStartTime;

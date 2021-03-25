@@ -11,6 +11,7 @@ void CGameInstance::Initialize()
 {
 	CObject::Initialize();
 	Hdc = ::GetDC(Hwnd);
+	GameInstance = this;
 
 	RegisterManagerClass<CCollisionManager>();
 	RegisterManagerClass<CSceneManager>();

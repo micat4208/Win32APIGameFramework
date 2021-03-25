@@ -1,6 +1,7 @@
 #include "PlayerableCharacter.h"
 
 #include "../../../../Framework/Statics/GameplayStatics.h"
+#include "../../../../Framework/Base/Component/Collision/CircleCollision/CircleCollision.h"
 
 #include "../../../Components/CharacterRenderer/CharacterRenderer.h"
 #include "../../../Components/PlayerAttack/PlayerAttack.h"
@@ -10,6 +11,10 @@ void CPlayerableCharacter::Initialize()
 {
 	CGameObject::Initialize();
 
+	LOG(TEXT("CPlayerableCharacter::Initialize()"));
+	LOG((CCollisionManager::Instance() == nullptr));
+	RegisterCharacter(AddComponent<CCircleCollision>());
+
 }
 
 void CPlayerableCharacter::Start()
@@ -18,6 +23,7 @@ void CPlayerableCharacter::Start()
 
 	AddComponent<CCharacterRenderer>()->bDrawLine = true;
 	PlayerAttack = AddComponent<CPlayerAttack>();
+
 }
 
 void CPlayerableCharacter::Tick(float dt)

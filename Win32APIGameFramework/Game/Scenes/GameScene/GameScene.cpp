@@ -3,6 +3,8 @@
 #include "../../GameObjects/Characters/PlayerableCharacter/PlayerableCharacter.h"
 #include "../../GameObjects/Characters/EnemyCharacter/EnemyCharacter.h"
 
+#include "../../../Framework/Base/Component/Collision/Collision.h"
+
 void CGameScene::Initialize()
 {
 	CScene::Initialize();
@@ -17,4 +19,9 @@ void CGameScene::Initialize()
 
 
 
+}
+
+void CGameScene::RegisterCharacter(CCollision* body, CCharacter* ownerCharacter)
+{
+	AllocatedCharacter.insert(make_pair(body, ownerCharacter));
 }

@@ -1,8 +1,12 @@
 #include "PlayerAttack.h"
 
-#include "../../../Framework/Base/Scene/Scene.h"
+#include "../../Scenes/GameScene/GameScene.h"
 
 #include "../../GameObjects/Bullet/Bullet.h"
+#include "../../../Framework/Base/GameObject/AudioObject/AudioObject.h"
+#include "../../GameObjects/Characters/PlayerableCharacter/PlayerableCharacter.h"
+
+#include "../../../Framework/Base/Component/Collision/CircleCollision/CircleCollision.h"
 
 #include "../../../Framework/Util/ObjectPool.h"
 
@@ -43,9 +47,11 @@ void CPlayerAttack::Release()
 
 void CPlayerAttack::FireMissile()
 {
+	// 오디오 오브젝트 생성
+	//auto audioObject = GetOwner()->OwnerScene->NewObject<CAudioObject>();
+	//audioObject->InitializeAudio("Resources/Audio/Fire_Missile.wav", false, 0.4f);
+
 	// CBullet 오브젝트 추가
-
-
 	CBullet* newBullet = Cast<CBullet>(BulletPool->GetRecycledObject());
 	newBullet = (newBullet == nullptr) ?
 		BulletPool->RegisterRecyclableObject<CBullet>(
@@ -54,4 +60,17 @@ void CPlayerAttack::FireMissile()
 	FVector2 beginPosition = GetOwner()->GetPosition() + (AttackDirection * Length);
 
 	newBullet->InitializeBullet(beginPosition, AttackDirection, 600.0f);
+
+	/*
+	newBullet->GetBulletCollision()->OverlapEvents.push_back(
+		[this, newBullet](CCollision* other)
+		{
+			if (other->GetOwner() != GetOwner() &&
+				other->GetOwner() != newBullet)
+			{
+				Cast<CGameScene>(GetOwner()->OwnerScene)->GetCharacter(other)->ApplyDamage(
+					Cast<CPlayerableCharacter>(GetOwner()), this, 20.0f);
+			}
+		});
+		*/
 }

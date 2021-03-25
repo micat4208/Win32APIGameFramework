@@ -10,13 +10,14 @@
 
 #endif
 
-class AudioComponent :
+class CAudioComponent :
     public CComponent
 {
 private :
     FMOD_SOUND* Sound;
     FMOD_CHANNEL* Channel;
     float Volume;
+    FMOD_BOOL IsPlaying;
 
 public :
     void InitializeAudioComponent(const char* path, bool bLoop);
@@ -26,6 +27,13 @@ public :
     virtual void Release() override;
 
 public :
+    void Play();
+    void Pause();
+    void Stop();
+    void Resume();
+    void VolumeUp();
+    void VolumeDown();
+    void SetVolume(float volume);
 
 
 

@@ -28,18 +28,20 @@ private :
         // SubManager 객체를 생성합니다.
         IManagerClass* newSubManager = NewObj<ManagerClassType>();
 
-        // 매니저 객체를 초기화합니다.
-        newSubManager->InitializeManagerClass();
 
         // map 에 추가합니다.
         ManagerClasses.insert(
             make_pair(typeid(ManagerClassType).name(), newSubManager) );
+
+        // 매니저 객체를 초기화합니다.
+        newSubManager->InitializeManagerClass();
     }
 
 public :
     template<typename ManagerClassType>
     FORCEINLINE ManagerClassType* GetManagerClass()
     {
+        return Cast<ManagerClassType>(ManagerClasses[string(typeid(ManagerClassType).name())]);
         auto iter = ManagerClasses.find(
             string(typeid(ManagerClassType).name()));
 

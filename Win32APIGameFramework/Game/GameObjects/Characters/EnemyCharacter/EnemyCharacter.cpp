@@ -11,6 +11,8 @@ void CEnemyCharacter::Start()
 	AddComponent<CCharacterRenderer>();
 	BodyCollision = AddComponent<CCircleCollision>();
 
+	RegisterCharacter(BodyCollision);
+
 	
 	BodyCollision->SetRadius(30.0f);
 	BodyCollision->OverlapEvents.push_back(
@@ -20,6 +22,7 @@ void CEnemyCharacter::Start()
 
 void CEnemyCharacter::OnOverlapped(CCollision* other)
 {
-	LOG(TEXT("CEnemyCharacter::OnOverlapped"));
+	LOG(TEXT("HP = ") << Hp);
+	
 
 }

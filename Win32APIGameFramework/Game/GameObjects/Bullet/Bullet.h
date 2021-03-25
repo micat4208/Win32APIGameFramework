@@ -37,5 +37,8 @@ public :
 
     virtual void OnRecycleStarted() override;
 
+    FORCEINLINE class CCircleCollision* GetBulletCollision() const
+    { return BulletCollision; }
+
 };
 

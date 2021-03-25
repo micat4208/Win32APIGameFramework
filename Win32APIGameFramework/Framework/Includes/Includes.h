@@ -33,6 +33,7 @@ using namespace std;
 // Globals...
 extern class CGameInstance* GameInstance;
 extern HWND Hwnd;
+extern struct FMOD_SYSTEM* SoundSystem;
 
 // 게임 시작 시간을 저장할 변수
 extern float GameStartTime;

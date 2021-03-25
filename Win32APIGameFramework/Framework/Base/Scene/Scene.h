@@ -46,10 +46,14 @@ public :
         if (!IsA<CGameObject, T>()) return nullptr;
 
         // 오브젝트 생성
-        CGameObject* newObj = NewObj<T>();
-        
+        CGameObject* newObj = new T();
+
         // 생성된 오브젝트를 소유하는 씬을 자신으로 설정합니다.
         newObj->OwnerScene = this;
+
+        newObj->Initialize();
+
+        
 
         // 생성된 오브젝트 이름을 설정합니다.
         newObj->SetObjectName(objName);

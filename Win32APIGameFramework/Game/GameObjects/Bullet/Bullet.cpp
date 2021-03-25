@@ -11,6 +11,8 @@ void CBullet::Initialize()
 {
 	__super::Initialize();
 
+	BulletCollision = AddComponent<CCircleCollision>();
+
 	bRecyclable = false;
 }
 
@@ -19,7 +21,6 @@ void CBullet::Start()
 	CGameObject::Start();
 
 	AddComponent<CBulletRenderer>();
-	BulletCollision = AddComponent<CCircleCollision>();
 }
 
 void CBullet::Tick(float dt)

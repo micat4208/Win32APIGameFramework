@@ -13,6 +13,7 @@ void CEnemyCharacter::Start()
 
 	RegisterCharacter(BodyCollision);
 
+	AddTag(TAG_ENEMY_CHARACTER);
 	
 	BodyCollision->SetRadius(30.0f);
 	BodyCollision->OverlapEvents.push_back(

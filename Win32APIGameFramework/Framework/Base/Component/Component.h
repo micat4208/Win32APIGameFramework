@@ -10,6 +10,9 @@ protected :
     // 해당 컴포넌트를 소유하는 오브젝트를 나타냅니다.
     class CGameObject* Owner;
 
+    // 각각의 컴포넌트를 간단하게 구분할 수 있는 문자열
+    vector<tstring> Tags;
+
 public :
     bool bBeDestroy;
 
@@ -32,5 +35,11 @@ public :
 
     FORCEINLINE class CGameObject* GetOwner() const
     { return Owner; }
+
+    FORCEINLINE void AddTag(tstring newTag)
+    { Tags.push_back(newTag); }
+
+    // 해당 컴포넌트가 tag 를 갖는지 확인합니다.
+    bool HasTag(tstring tag) const;
 };
 

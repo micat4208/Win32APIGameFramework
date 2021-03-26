@@ -12,7 +12,7 @@ void CBullet::Initialize()
 	__super::Initialize();
 
 	BulletCollision = AddComponent<CCircleCollision>();
-
+	BulletCollision->AddTag(TAG_PLAYER_BULLET);
 	bRecyclable = false;
 }
 

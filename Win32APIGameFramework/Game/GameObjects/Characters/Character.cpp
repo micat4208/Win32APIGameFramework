@@ -1,6 +1,14 @@
 #include "Character.h"
 
+#include "../../Components/HpbarRenderer/HpbarRenderer.h"
+
 #include "../../Scenes/GameScene/GameScene.h"
+
+void CCharacter::Initialize()
+{
+	__super::Initialize();
+	AddComponent<CHpbarRenderer>();
+}
 
 void CCharacter::Start()
 {

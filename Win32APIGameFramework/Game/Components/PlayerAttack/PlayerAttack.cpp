@@ -48,8 +48,8 @@ void CPlayerAttack::Release()
 void CPlayerAttack::FireMissile()
 {
 	// 오디오 오브젝트 생성
-	//auto audioObject = GetOwner()->OwnerScene->NewObject<CAudioObject>();
-	//audioObject->InitializeAudio("Resources/Audio/Fire_Missile.wav", false, 0.4f);
+	auto audioObject = GetOwner()->OwnerScene->NewObject<CAudioObject>();
+	audioObject->InitializeAudio("Resources/Audio/Fire_Missile.wav", false, 0.4f);
 
 	// CBullet 오브젝트 추가
 	CBullet* newBullet = Cast<CBullet>(BulletPool->GetRecycledObject());
@@ -61,16 +61,15 @@ void CPlayerAttack::FireMissile()
 
 	newBullet->InitializeBullet(beginPosition, AttackDirection, 600.0f);
 
-	/*
+	
 	newBullet->GetBulletCollision()->OverlapEvents.push_back(
 		[this, newBullet](CCollision* other)
 		{
-			if (other->GetOwner() != GetOwner() &&
-				other->GetOwner() != newBullet)
+			if (other->GetOwner() != GetOwner() && !other->HasTag(TAG_PLAYER_BULLET))
 			{
 				Cast<CGameScene>(GetOwner()->OwnerScene)->GetCharacter(other)->ApplyDamage(
 					Cast<CPlayerableCharacter>(GetOwner()), this, 20.0f);
 			}
 		});
-		*/
+		
 }

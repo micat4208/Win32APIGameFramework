@@ -8,6 +8,7 @@ protected :
     float Hp;
 
 public :
+    virtual void Initialize() override;
     virtual void Start() override;
 
 public :

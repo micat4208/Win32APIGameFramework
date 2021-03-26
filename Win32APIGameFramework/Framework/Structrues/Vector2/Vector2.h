@@ -27,7 +27,21 @@ public:
 	// 단위 벡터를 반환합니다.
 	FVector2 Normalized();
 
-
+public :
+	FORCEINLINE static FVector2 ZeroVector()
+	{ return FVector2(0.0f, 0.0f); }
+	
+	FORCEINLINE static FVector2 UpVector()
+	{ return FVector2(0.0f, -1.0f); }
+	
+	FORCEINLINE static FVector2 DownVector()
+	{ return FVector2(0.0f, 1.0f); }
+	
+	FORCEINLINE static FVector2 LeftVector()
+	{ return FVector2(-1.0f, 0.0f); }
+	
+	FORCEINLINE static FVector2 RightVector()
+	{ return FVector2(1.0f, 0.0f); }
 
 
 #pragma region 산술 연산자 오버로드

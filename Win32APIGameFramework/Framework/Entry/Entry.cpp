@@ -5,6 +5,8 @@
 #include "../Single/CollisionManager/CollisionManager.h"
 
 class CGameInstance* GameInstance;
+
+// 사운드 시스템을 생성하기 위한 변수 선언
 struct FMOD_SYSTEM* SoundSystem;
 HWND Hwnd;
 
@@ -79,6 +81,12 @@ int APIENTRY WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance,
 #pragma region 5. 메시지 루프 처리
 	//while (GetMessage(&Msg, NULL, NULL, NULL))
 
+	// FMOD 사운드 시스템 생성
+	FMOD_System_Create(&SoundSystem);
+
+	// FMOD 사운드 시스템 초기화
+	FMOD_System_Init(SoundSystem, 32, FMOD_INIT_NORMAL, NULL);
+
 	GameInstance = NewObj<CGameInstance>();
 
 	Msg.message = WM_NULL;
@@ -127,6 +135,14 @@ LRESULT CALLBACK WndProc(HWND hwnd, UINT msg, WPARAM wParam, LPARAM lParam)
 	switch (msg)
 	{
 	case WM_DESTROY:
+
+		// 사운스 시스템을 닫습니다.
+		FMOD_System_Close(SoundSystem);
+
+		// 사운드 시스템을 해제합니다.
+		FMOD_System_Release(SoundSystem);
+
+
 		DeleteObj(GameInstance);
 
 		PostQuitMessage(0);

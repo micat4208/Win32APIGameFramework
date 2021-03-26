@@ -12,6 +12,8 @@
 #include <list>
 #include <map>
 
+#include <fmod.h>
+
 #include "Log.h"
 using namespace std;
 
@@ -26,6 +28,15 @@ using namespace std;
 
 #define WND_WIDTH		800
 #define WND_HEIGHT		600
+#endif
+
+#ifndef COMPONENT_TAGS
+#define COMPONENT_TAGS
+
+#define TAG_PLAYER_BULLET		TEXT("PlayerBullet")
+#define TAG_PLAYER_CHARACTER	TEXT("PlayerCharacter")
+#define TAG_ENEMY_CHARACTER		TEXT("EnemyCharacter")
+
 #endif
 
 

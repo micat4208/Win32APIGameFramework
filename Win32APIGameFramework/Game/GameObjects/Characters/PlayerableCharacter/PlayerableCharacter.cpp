@@ -9,10 +9,9 @@
 
 void CPlayerableCharacter::Initialize()
 {
-	CGameObject::Initialize();
+	__super::Initialize();
 
-	LOG(TEXT("CPlayerableCharacter::Initialize()"));
-	LOG((CCollisionManager::Instance() == nullptr));
+	AddTag(TAG_PLAYER_CHARACTER);
 	RegisterCharacter(AddComponent<CCircleCollision>());
 
 }

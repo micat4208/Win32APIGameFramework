@@ -22,13 +22,15 @@ private :
 	// 제거될 컴포넌트를 나타냅니다.
 	list<CComponent*> DestroyedComponents;
 
-
 protected :
 	// 오브젝트의 이름
 	tstring Name;
 
 	// 이 오브젝트의 위치
 	FVector2 Position;
+
+	// 각각의 컴포넌트를 간단하게 구분할 수 있는 문자열
+	vector<tstring> Tags;
 
 public :
 	// 이 오브젝트를 소유하는 씬 객체
@@ -69,11 +71,13 @@ public :
 		if (!IsA<CComponent, ComponentClassType>()) return nullptr;
 
 		// 컴포넌트 생성
-		CComponent* newComponent = NewObj<ComponentClassType>();
+		CComponent* newComponent = new ComponentClassType();
 
 		// 컴포넌트를 소유하는 객체를 지정합니다.
 		newComponent->SetOwner(this);
 		CreatedComponents.push_back(newComponent);
+
+		newComponent->Initialize();
 
 		// 만약 추가하는 컴포넌트가 RenderComponent 라면
 		if (IsA<CRenderComponent, ComponentClassType>())
@@ -147,7 +151,18 @@ public :
 	{ return Position = newPosition; }
 	FORCEINLINE FVector2 AddPosition(FVector2 addPosition)
 	{ return Position += addPosition; }
+	
+    FORCEINLINE void AddTag(tstring newTag)
+    { Tags.push_back(newTag); }
 
+    // 해당 오브젝트가 tag 를 갖는지 확인합니다.
+	FORCEINLINE bool HasTag(tstring tag) const
+	{
+		for (auto componentTag : Tags)
+			if (componentTag == tag) return true;
+
+		return false;
+	}
 
 };
 

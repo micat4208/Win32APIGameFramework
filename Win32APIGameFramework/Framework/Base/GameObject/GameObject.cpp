@@ -100,3 +100,4 @@ void CGameObject::RegisterNewRenderComponent(CRenderComponent* newRenderComponen
 {
 	OwnerScene->RegisterNewRenderComponent(newRenderComponent);
 }
+

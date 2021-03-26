@@ -14,3 +14,11 @@ void CComponent::Start()
 }
 
 void CComponent::Tick(float dt) { }
+
+bool CComponent::HasTag(tstring tag) const
+{
+	for (auto componentTag : Tags)
+		if (componentTag == tag) return true;
+
+	return false;
+}

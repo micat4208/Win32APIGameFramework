@@ -65,10 +65,14 @@ void CPlayerAttack::FireMissile()
 	newBullet->GetBulletCollision()->OverlapEvents.push_back(
 		[this, newBullet](CCollision* other)
 		{
+			if (newBullet->GetCanRecyclable()) return;
+
 			if (other->GetOwner() != GetOwner() && !other->HasTag(TAG_PLAYER_BULLET))
 			{
 				Cast<CGameScene>(GetOwner()->OwnerScene)->GetCharacter(other)->ApplyDamage(
 					Cast<CPlayerableCharacter>(GetOwner()), this, 20.0f);
+
+				newBullet->SetCanRecyclable(true);
 			}
 		});
 		

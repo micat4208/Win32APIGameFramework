@@ -1,12 +1,16 @@
 #include "BulletRenderer.h"
 
-#include "../../../Framework/Base/GameObject/GameObject.h"
+#include "../../GameObjects/\Bullet/Bullet.h"
 
 
 
 void CBulletRenderer::Render(HDC hdc)
 {
-	auto center = GetOwner()->GetPosition();
+	auto ownerBullet = Cast<CBullet>(GetOwner());
+
+	if (ownerBullet->GetCanRecyclable()) return;
+
+	auto center = ownerBullet->GetPosition();
 	auto radius = 20.0f;
 
 	if (FMath::IsIn(center.X, 0.0f, (float)WND_WIDTH) &&

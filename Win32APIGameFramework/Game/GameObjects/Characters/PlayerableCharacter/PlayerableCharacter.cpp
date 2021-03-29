@@ -1,5 +1,7 @@
 #include "PlayerableCharacter.h"
 
+#include "../../../../Framework/Single/PlayerManager/PlayerManager.h"
+
 #include "../../../../Framework/Statics/GameplayStatics.h"
 #include "../../../../Framework/Base/Component/Collision/CircleCollision/CircleCollision.h"
 
@@ -13,7 +15,7 @@ void CPlayerableCharacter::Initialize()
 
 	AddTag(TAG_PLAYER_CHARACTER);
 	RegisterCharacter(AddComponent<CCircleCollision>());
-
+	CPlayerManager::Instance()->RegisterPlayerableCharacter(this);
 }
 
 void CPlayerableCharacter::Start()

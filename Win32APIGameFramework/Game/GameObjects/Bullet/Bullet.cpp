@@ -40,6 +40,8 @@ void CBullet::InitializeBullet(FVector2 beginPosition, FVector2 direction, float
 
 void CBullet::BulletMove(float dt)
 {
+	if (bRecyclable) return;
+
 	SetPosition(GetPosition() + (Direction * Speed * dt));
 
 	// 현재 총알의 위치가 발사된 지점에서 MaxDistance 이상 이동했다면

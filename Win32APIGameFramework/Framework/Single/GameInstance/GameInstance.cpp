@@ -2,6 +2,7 @@
 
 #include "../SceneManager/SceneManager.h"
 #include "../CollisionManager/CollisionManager.h"
+#include "../PlayerManager/PlayerManager.h"
 
 CGameInstance::CGameInstance()
 {
@@ -14,6 +15,7 @@ void CGameInstance::Initialize()
 	GameInstance = this;
 
 	RegisterManagerClass<CCollisionManager>();
+	RegisterManagerClass<CPlayerManager>();
 	RegisterManagerClass<CSceneManager>();
 }
 

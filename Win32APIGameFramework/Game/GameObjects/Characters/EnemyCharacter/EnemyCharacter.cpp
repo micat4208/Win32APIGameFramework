@@ -1,6 +1,7 @@
 #include "EnemyCharacter.h"
 
 #include "../../../Components/CharacterRenderer/CharacterRenderer.h"
+#include "../../../Components/AIBehaviorController/AIBehaviorController.h"
 
 #include "../../../../Framework/Base/Component/Collision/CircleCollision/CircleCollision.h"
 
@@ -10,6 +11,12 @@ void CEnemyCharacter::Start()
 
 	AddComponent<CCharacterRenderer>();
 	BodyCollision = AddComponent<CCircleCollision>();
+	AIBehaviorController = AddComponent<CAIBehaviorController>();
+
+	// 행동 등록
+	{
+
+	}
 
 	RegisterCharacter(BodyCollision);
 
@@ -23,7 +30,4 @@ void CEnemyCharacter::Start()
 
 void CEnemyCharacter::OnOverlapped(CCollision* other)
 {
-	LOG(TEXT("HP = ") << Hp);
-	
-
 }

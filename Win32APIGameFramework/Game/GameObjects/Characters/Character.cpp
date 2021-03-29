@@ -8,6 +8,8 @@ void CCharacter::Initialize()
 {
 	__super::Initialize();
 	AddComponent<CHpbarRenderer>();
+
+	MaxHp = Hp = 100.0f;
 }
 
 void CCharacter::Start()
@@ -21,6 +23,7 @@ void CCharacter::ApplyDamage(
 	float damage)
 {
 	Hp -= damage;
+	Hp = FMath::Clamp(Hp, 0.0f, MaxHp);
 }
 
 void CCharacter::RegisterCharacter(CCollision* body)

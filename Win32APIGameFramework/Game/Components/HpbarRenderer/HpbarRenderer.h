@@ -19,7 +19,5 @@ public :
     virtual void Initialize() override;
     virtual void Start() override;
     virtual void Render(HDC hdc) override;
-
-
-
+    virtual void Release() override;
 };

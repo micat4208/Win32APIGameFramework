@@ -40,5 +40,7 @@ public :
     FORCEINLINE class CCircleCollision* GetBulletCollision() const
     { return BulletCollision; }
 
+
+
 };
 

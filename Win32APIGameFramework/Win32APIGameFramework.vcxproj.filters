@@ -96,6 +96,18 @@
     <ClCompile Include="Game\Components\HpbarRenderer\HpbarRenderer.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="Game\Components\AIBehaviorController\AIBehaviorController.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Components\AIBehaviorController\AIBehavior\AIBehavior.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Components\AIBehaviorController\AIBehavior\AIBHTrackingPlayer\AIBHTrackingPlayer.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="Framework\Single\PlayerManager\PlayerManager.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Framework\Base\Object\Object.h">
@@ -195,6 +207,18 @@
       <Filter>헤더 파일</Filter>
     </ClInclude>
     <ClInclude Include="Game\Components\HpbarRenderer\HpbarRenderer.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Components\AIBehaviorController\AIBehaviorController.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Components\AIBehaviorController\AIBehavior\AIBehavior.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Components\AIBehaviorController\AIBehavior\AIBHTrackingPlayer\AIBHTrackingPlayer.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Framework\Single\PlayerManager\PlayerManager.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
   </ItemGroup>

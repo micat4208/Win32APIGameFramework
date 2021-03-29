@@ -5,6 +5,7 @@ class CCharacter abstract :
     public CGameObject
 {
 protected :
+    float MaxHp;
     float Hp;
 
 public :
@@ -19,6 +20,12 @@ public :
 
 protected :
     void RegisterCharacter(class CCollision* body);
+
+public :
+    FORCEINLINE float GetMaxHp() const
+    { return MaxHp; }
+    FORCEINLINE float GetHp() const
+    { return Hp; }
 
 
 

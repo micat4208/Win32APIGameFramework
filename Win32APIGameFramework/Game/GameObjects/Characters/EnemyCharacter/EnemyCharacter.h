@@ -6,6 +6,7 @@ class CEnemyCharacter final :
 {
 
 private :
+    class CAIBehaviorController* AIBehaviorController;
     class CCircleCollision* BodyCollision;
 
 public :

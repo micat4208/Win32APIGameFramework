@@ -17,8 +17,6 @@ public :
     FORCEINLINE T* RegisterRecyclableObject(IObjectPoolable* newRecyclableObject)
     {
         PoolObjects.push_back(newRecyclableObject);
-
-        LOG(TEXT("PoolObjects.size() = ") << PoolObjects.size());
         return Cast<T>(newRecyclableObject);
     }
     

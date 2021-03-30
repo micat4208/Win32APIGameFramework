@@ -27,13 +27,14 @@ public :
 
 public :
     template<typename BehaviorType>
-    FORCEINLINE BehaviorType * RegisterBehavior()
+    FORCEINLINE BehaviorType* RegisterBehavior()
     {
         // CAIBehavior 와 BehaviorType 형식이 상속 관계에 속하지 않는 경우 행동 객체 등록을 취소합니다.
-        if (!IsA(CAIBehavior, BehaviorType)) return nullptr;
+        if (!IsA<CAIBehavior, BehaviorType>()) return nullptr;
 
         // 행동 객체 생성
-        BehaviorType * newBehavior = NewObj<BehaviorType>();
+        BehaviorType* newBehavior = NewObj<BehaviorType>();
+        newBehavior->BehaviorController = this;
 
         // 행동 객체 등록
         Behaviors.push_back(newBehavior);
@@ -49,7 +50,7 @@ public :
 
 private :
     // 행동 객체들을 관리합니다.
-    void BehaviorControl();
+    void BehaviorControl(float dt);
 
 
 

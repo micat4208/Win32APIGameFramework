@@ -3,20 +3,29 @@
 #include "../../../Components/CharacterRenderer/CharacterRenderer.h"
 #include "../../../Components/AIBehaviorController/AIBehaviorController.h"
 
-#include "../../../../Framework/Base/Component/Collision/CircleCollision/CircleCollision.h"
+#include "Framework/Base/Component/Collision/CircleCollision/CircleCollision.h"
 
-void CEnemyCharacter::Start()
+#include "Game/Components/AIBehaviorController/AIBehavior/AIBHTrackingPlayer/AIBHTrackingPlayer.h"
+
+void CEnemyCharacter::Initialize()
 {
-	CGameObject::Start();
+	__super::Initialize();
 
 	AddComponent<CCharacterRenderer>();
 	BodyCollision = AddComponent<CCircleCollision>();
 	AIBehaviorController = AddComponent<CAIBehaviorController>();
 
 	// 행동 등록
-	{
+	AIBehaviorController->RegisterBehavior<CAIBHTrackingPlayer>();
+}
 
-	}
+void CEnemyCharacter::Start()
+{
+	CGameObject::Start();
+
+
+	// 행동 제어 시작
+	AIBehaviorController->StartBehaviorControl();
 
 	RegisterCharacter(BodyCollision);
 

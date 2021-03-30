@@ -1,6 +1,6 @@
 ﻿  AIBehaviorController.cpp
+  AIBHTrackingPlayer.cpp
   AIBehavior.cpp
-C:\Users\SBSGAME\Desktop\Share\GameProgramming\GameProgramming5\Win32API\Game\Win32APIGameFramework\Win32APIGameFramework\Game\Components\AIBehaviorController\AIBehavior\AIBehavior.cpp(5,23): error C2065: 'BehaviorFinalDelay': 선언되지 않은 식별자입니다.
   EnemyCharacter.cpp
-  GameScene.cpp
   코드를 생성하고 있습니다...
+  Win32APIGameFramework.vcxproj -> C:\Users\SBSGAME\Desktop\Share\GameProgramming\GameProgramming5\Win32API\Game\Win32APIGameFramework\x64\Debug\Win32APIGameFramework.exe

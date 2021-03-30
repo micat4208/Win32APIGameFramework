@@ -10,6 +10,7 @@ private :
     class CCircleCollision* BodyCollision;
 
 public :
+    virtual void Initialize() override;
     virtual void Start() override;
 
 private :

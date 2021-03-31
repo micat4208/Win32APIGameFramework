@@ -12,7 +12,7 @@ private :
     vector<CAIBehavior*> Behaviors;
 
     // 다음으로 실행할 행동 인덱스를 나타냅니다.
-    int NextBehaviorIndex;
+    vector<CAIBehavior*>::iterator BehaviorIterator;
 
     // 행동 관리가 시작 되었는지를 나타냅니다.
     bool bBehaviorControlStarted;
@@ -38,6 +38,7 @@ public :
 
         // 행동 객체 등록
         Behaviors.push_back(newBehavior);
+        BehaviorIterator = Behaviors.begin();
 
         // 행동 객체 초기화
         Cast<CAIBehavior>(newBehavior)->InitializeBehaivor();

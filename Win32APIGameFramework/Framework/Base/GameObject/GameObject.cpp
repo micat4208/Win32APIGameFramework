@@ -32,35 +32,45 @@ void CGameObject::Tick(float dt)
 	// 제거될 컴포넌트가 존재한다면
 	if (DestroyedComponents.size() > 0)
 	{
-
-		// 적 캐릭터와 겹침 이벤트 처리
-
 		for (auto component : DestroyedComponents)
 		{
-			if (IsA<CCollision>(component))
-				CCollisionManager::Instance()->UnRegisterCollision(Cast<CCollision>(component));
-			else if (IsA<CRenderComponent>(component))
-				OwnerScene->UnRegisterRenderComponent(Cast<CRenderComponent>(component));
-
+			ReleaseComponent(component);
 			UsedComponents.remove(component);
 		}
 
 	}
 
 	// 추가된 컴포넌트들의 Start() 메서드와 Tick() 메서드를 호출합니다.
-	for (auto component : UsedComponents)
+	if (UsedComponents.size() > 0)
 	{
-		if (component->bBeDestroy) continue;
+		for (auto component : UsedComponents)
+		{
+			if (component->bBeDestroy) continue;
 
-		if (!component->bIsStarted)
-			component->Start();
+			if (!component->bIsStarted)
+				component->Start();
 
-		if (component->bCanEverTick)
-			component->Tick(dt);
+			if (component->bCanEverTick)
+				component->Tick(dt);
+		}
 	}
 }
 
-void CGameObject::OnDestory() { }
+void CGameObject::OnDestory() 
+{
+	// 생성된 컴포넌트가 존재한다면 
+	if (CreatedComponents.size() > 0)
+	{
+		for (auto component : CreatedComponents)
+			RemoveComponent(component);
+		CreatedComponents.clear();
+	}
+
+	// 사용중인 컴포넌트를 제거합니다.
+	for (auto component : UsedComponents)
+		RemoveComponent(component);
+	UsedComponents.clear();
+}
 
 void CGameObject::Release() 
 { 
@@ -71,6 +81,7 @@ void CGameObject::Release()
 	{
 		for (auto component : CreatedComponents)
 		{
+			RemoveComponent(component);
 			DeleteObj(component);
 		}
 	}
@@ -78,6 +89,7 @@ void CGameObject::Release()
 	// 사용중인 컴포넌트 해제
 	for (auto component : UsedComponents)
 	{
+		RemoveComponent(component);
 		DeleteObj(component);
 	}
 	CreatedComponents.clear();
@@ -94,6 +106,13 @@ void CGameObject::RemoveComponent(CComponent* component)
 		OwnerScene->UnRegisterRenderComponent(Cast<CRenderComponent>(component));
 
 	DestroyedComponents.push_back(component);
+}
+
+void CGameObject::ReleaseComponent(CComponent* component)
+{
+	if (!component->bBeDestroy) return;
+	DeleteObj(component);
+
 }
 
 void CGameObject::RegisterNewRenderComponent(CRenderComponent* newRenderComponent)

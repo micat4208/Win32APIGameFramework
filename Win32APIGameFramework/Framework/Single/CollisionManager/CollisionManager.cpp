@@ -108,7 +108,6 @@ void CCollisionManager::DoCollisionTest()
 	// 등록된 충돌체가 2 개 미만이라면 검사하지 않습니다.
 	if (UsedCollisions.size() < 2) return;
 
-
 	auto iter1 = UsedCollisions.begin();
 	auto iter1Fin = --UsedCollisions.end();
 
@@ -162,7 +161,6 @@ void CCollisionManager::DoCollisionTest()
 				}
 				else if ((*iter2)->GetCollisionType() == ECollisionType::Circle)
 				{
-
 					if (DoCollisionTestCircleToCircle((*iter1), (*iter2)))
 					{
 						(*iter1)->OnOverlapped(*iter2);

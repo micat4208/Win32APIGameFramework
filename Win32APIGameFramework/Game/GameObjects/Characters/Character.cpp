@@ -23,7 +23,10 @@ void CCharacter::ApplyDamage(
 	float damage)
 {
 	Hp -= damage;
+
 	Hp = FMath::Clamp(Hp, 0.0f, MaxHp);
+	if (FMath::Approximately(Hp, 0.0f))
+		OnCharacterDie();
 }
 
 void CCharacter::RegisterCharacter(CCollision* body)

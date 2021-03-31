@@ -33,6 +33,10 @@ void CPlayerableCharacter::Tick(float dt)
 	InputKey(dt);
 }
 
+void CPlayerableCharacter::OnCharacterDie()
+{
+}
+
 void CPlayerableCharacter::InputKey(float dt)
 {
 	if (GetAsyncKeyState(MOVE_LEFT))

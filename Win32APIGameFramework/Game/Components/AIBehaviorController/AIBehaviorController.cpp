@@ -6,7 +6,6 @@ void CAIBehaviorController::Initialize()
 {
 	__super::Initialize();
 
-	NextBehaviorIndex = 0;
 	bBehaviorControlStarted = false;
 }
 
@@ -28,12 +27,12 @@ void CAIBehaviorController::BehaviorControl(float dt)
 	if (!bBehaviorControlStarted) return;
 
 	// 실행할 행동을 나타냅니다.
-	CAIBehavior* behavior = Behaviors[NextBehaviorIndex];
+	CAIBehavior* behavior = *BehaviorIterator;
 
-	// 다음 행동 인덱스로 변경합니다.
-	++NextBehaviorIndex;
-	if (NextBehaviorIndex < Behaviors.size() - 1)
-		NextBehaviorIndex = 0;
+	// 다음 행동을 가리키도록 합니다.
+	++BehaviorIterator;
+	if (BehaviorIterator == Behaviors.end())
+		BehaviorIterator = Behaviors.begin();
 
 
 	// 행동 초기 지연 시간만큼 대기합니다.

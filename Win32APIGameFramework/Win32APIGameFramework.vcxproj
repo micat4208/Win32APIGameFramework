@@ -185,6 +185,7 @@
     <ClCompile Include="Game\GameObjects\Characters\Character.cpp" />
     <ClCompile Include="Game\GameObjects\Characters\EnemyCharacter\EnemyCharacter.cpp" />
     <ClCompile Include="Game\GameObjects\Characters\PlayerableCharacter\PlayerableCharacter.cpp" />
+    <ClCompile Include="Game\GameObjects\WaveController\WaveController.cpp" />
     <ClCompile Include="Game\Scenes\GameScene\GameScene.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -224,6 +225,7 @@
     <ClInclude Include="Game\GameObjects\Characters\Character.h" />
     <ClInclude Include="Game\GameObjects\Characters\EnemyCharacter\EnemyCharacter.h" />
     <ClInclude Include="Game\GameObjects\Characters\PlayerableCharacter\PlayerableCharacter.h" />
+    <ClInclude Include="Game\GameObjects\WaveController\WaveController.h" />
     <ClInclude Include="Game\Scenes\GameScene\GameScene.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

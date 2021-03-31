@@ -127,6 +127,9 @@ public :
 	// 컴포넌트를 제거합니다.
 	void RemoveComponent(class CComponent* component);
 
+	// 컴포넌트를 해제합니다.
+	void ReleaseComponent(class CComponent* component);
+
 
 
 private :

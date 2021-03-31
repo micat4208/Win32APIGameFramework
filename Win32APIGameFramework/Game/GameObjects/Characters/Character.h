@@ -20,6 +20,8 @@ public :
 
 protected :
     void RegisterCharacter(class CCollision* body);
+    virtual void OnCharacterDie() PURE;
+
 
 public :
     FORCEINLINE float GetMaxHp() const

@@ -1,11 +1,12 @@
 #include "EnemyCharacter.h"
 
-#include "../../../Components/CharacterRenderer/CharacterRenderer.h"
-#include "../../../Components/AIBehaviorController/AIBehaviorController.h"
-
 #include "Framework/Base/Component/Collision/CircleCollision/CircleCollision.h"
 
+#include "Game/Components/CharacterRenderer/CharacterRenderer.h"
+#include "Game/Components/AIBehaviorController/AIBehaviorController.h"
 #include "Game/Components/AIBehaviorController/AIBehavior/AIBHTrackingPlayer/AIBHTrackingPlayer.h"
+
+#include "Game/GameObjects/WaveController/WaveController.h"
 
 void CEnemyCharacter::Initialize()
 {
@@ -23,7 +24,6 @@ void CEnemyCharacter::Start()
 {
 	CGameObject::Start();
 
-
 	// 행동 제어 시작
 	AIBehaviorController->StartBehaviorControl();
 
@@ -35,6 +35,11 @@ void CEnemyCharacter::Start()
 	BodyCollision->OverlapEvents.push_back(
 		[this](CCollision* other) { OnOverlapped(other); });
 
+}
+
+void CEnemyCharacter::OnCharacterDie()
+{
+	WaveController->DestroyEnemy(this);
 }
 
 void CEnemyCharacter::OnOverlapped(CCollision* other)

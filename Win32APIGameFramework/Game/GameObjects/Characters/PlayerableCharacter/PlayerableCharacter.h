@@ -27,6 +27,9 @@ public :
 	virtual void Start() override;
 	virtual void Tick(float dt) override;
 
+protected :
+	virtual void OnCharacterDie() override;
+
 private :
 	void InputKey(float dt);
 

@@ -113,11 +113,12 @@ int APIENTRY WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance,
 
 			if (totalDt >= targetDt)
 			{
+				// 충돌체 검사
+				CCollisionManager::Instance()->DoCollisionTest();
+
 				CSceneManager::Instance()->Tick(totalDt);
 				CSceneManager::Instance()->Render(GameInstance->GetDC());
 
-				// 충돌체 검사
-				CCollisionManager::Instance()->DoCollisionTest();
 
 				totalDt = 0.0f;
 			}

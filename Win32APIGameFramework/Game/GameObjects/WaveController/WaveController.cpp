@@ -1,9 +1,10 @@
 #include "WaveController.h"
 
+#include "Framework/Single/SceneManager/SceneManager.h"
 #include "Framework/Base/Scene/Scene.h"
 
 #include "Game/GameObjects/Characters/EnemyCharacter/EnemyCharacter.h"
-
+#include "Game/Scenes/TitleScene/TitleScene.h"
 
 void CWaveController::Initialize()
 {
@@ -12,7 +13,7 @@ void CWaveController::Initialize()
 	bAllClear = false;
 
 	WaveInfos.push_back(1);
-	//WaveInfos.push_back(10);
+	WaveInfos.push_back(10);
 	//WaveInfos.push_back(15);
 	//WaveInfos.push_back(20);
 	WaveIterator = WaveInfos.begin();
@@ -26,7 +27,11 @@ void CWaveController::Start()
 
 void CWaveController::StartWave()
 {
-	if (bAllClear) return;
+	if (bAllClear)
+	{
+		CSceneManager::Instance()->LoadScene<CTitleScene>();
+		return;
+	}
 
 	for (int i = 0; i < (*WaveIterator); ++i)
 		CreateEnemy();
@@ -50,13 +55,15 @@ CEnemyCharacter* CWaveController::CreateEnemy()
 	// 스테이지 중앙 위치를 저장합니다.
 	FVector2 stageCenter = FVector2(WND_WIDTH * 0.5f, WND_HEIGHT * 0.5f);
 
-	FVector2 createPosition = stageCenter + FVector2(
+	FVector2 createPosition = FVector2(
 		FMath::FRandRange(-1.0f, 1.0f),
 		FMath::FRandRange(-1.0f, 1.0f));
 
 	// 길이가 1인 벡터가 되도록 합니다.
 	createPosition = createPosition.Normalized();
 	createPosition *= 300.0f;
+	createPosition += stageCenter;
+
 
 	// 적을 배치합니다.
 	newEnemy->SetPosition(createPosition);
@@ -70,5 +77,7 @@ void CWaveController::DestroyEnemy(CEnemyCharacter* enemy)
 	OwnerScene->Destroy(enemy);
 
 	if (CreatedEnemyCharacter.size() == 0)
+	{
 		StartWave();
+	}
 }

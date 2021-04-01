@@ -3,6 +3,12 @@
 #include "../../GameObject/GameObject.h"
 #include "../../Scene/Scene.h"
 
+CAudioComponent::CAudioComponent()
+{
+	Sound = nullptr;
+	Channel = nullptr;
+}
+
 void CAudioComponent::InitializeAudioComponent(const char* path, bool bLoop)
 {
 	// 사운드를 생성합니다.
@@ -11,19 +17,15 @@ void CAudioComponent::InitializeAudioComponent(const char* path, bool bLoop)
 	/// - FMOD_LOOP_NORMAL : 사운드 무한 재생을 의미합니다.
 	/// - FMOD_DEFAULT : 기본 재생 방식을 의미합니다.
 
-	Channel = nullptr;
 	Volume = AUDIO_VOLUME_MAX * 0.5f;
 
-}
-
-void CAudioComponent::Initialize()
-{
-	__super::Initialize();
 }
 
 void CAudioComponent::Tick(float dt)
 {
 	__super::Tick(dt);
+
+	if (Channel == nullptr) return;
 
 	// 사운드 출력을 확인합니다.
 	FMOD_Channel_IsPlaying(Channel, &IsPlaying);
@@ -34,7 +36,11 @@ void CAudioComponent::Tick(float dt)
 	if (IsPlaying)
 		FMOD_System_Update(SoundSystem);
 
-	else GetOwner()->OwnerScene->Destroy(GetOwner());
+	else
+	{
+		Channel = nullptr;
+		GetOwner()->OwnerScene->Destroy(GetOwner());
+	}
 
 }
 
@@ -48,6 +54,8 @@ void CAudioComponent::Release()
 
 void CAudioComponent::Play()
 {
+	if (Sound == nullptr) return;
+
 	// 사운드를 재생합니다
 	FMOD_System_PlaySound(SoundSystem, Sound, NULL, false, &Channel);
 	/// - 사운드 시스템을 전달합니다.

@@ -111,6 +111,15 @@
     <ClCompile Include="Game\GameObjects\WaveController\WaveController.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="Game\Scenes\TitleScene\TitleScene.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Components\TitlePressEnterKey\TitlePressEnterKey.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="Framework\Base\Component\RenderComponent\SpriteRenderer\SpriteRenderer.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Framework\Base\Object\Object.h">
@@ -225,6 +234,15 @@
       <Filter>헤더 파일</Filter>
     </ClInclude>
     <ClInclude Include="Game\GameObjects\WaveController\WaveController.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Scenes\TitleScene\TitleScene.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Components\TitlePressEnterKey\TitlePressEnterKey.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Framework\Base\Component\RenderComponent\SpriteRenderer\SpriteRenderer.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
   </ItemGroup>

@@ -28,6 +28,8 @@ void CScene::Tick(float dt)
     {
         for (auto gameObj : DestroyedGameObjectList)
         {
+            gameObj->OnDestory();
+
             // 제거하려는 게임 오브젝트를 UsedGameObjectList 에서 제거
             UsedGameObjectList.remove(gameObj);
 
@@ -109,6 +111,7 @@ void CScene::Release()
         for (auto iter = CreatedGameObjectList.begin();
             iter != CreatedGameObjectList.end(); ++iter)
         {
+            (*iter)->OnDestory();
             DeleteObj((*iter));
         }
 
@@ -118,6 +121,7 @@ void CScene::Release()
     // 추가된 오브젝트 해제
     for (auto usedObj : UsedGameObjectList)
     {
+        usedObj->OnDestory();
         DeleteObj(usedObj);
     }
     UsedGameObjectList.clear();
@@ -168,6 +172,5 @@ void CScene::Destroy(CGameObject* obj)
     if (obj->bBeDestroy) return;
 
     obj->bBeDestroy = true;
-    obj->OnDestory();
     DestroyedGameObjectList.push_back(obj);
 }

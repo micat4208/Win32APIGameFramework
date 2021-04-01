@@ -1,6 +1,6 @@
 #include "SceneManager.h"
 
-#include "../../../Game/Scenes/GameScene/GameScene.h"
+#include "../../../Game/Scenes/TitleScene/TitleScene.h"
 
 
 void CSceneManager::InitializeManagerClass()
@@ -8,7 +8,7 @@ void CSceneManager::InitializeManagerClass()
 	CurrentScene = NextScene = nullptr;
 
 	// 첫 번째 씬을 설정합니다.
-	LoadScene<CGameScene>();
+	LoadScene<CTitleScene>();
 }
 
 void CSceneManager::ReleaseManagerClass()

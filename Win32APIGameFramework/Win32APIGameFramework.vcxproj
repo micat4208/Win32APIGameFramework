@@ -161,6 +161,7 @@
     <ClCompile Include="Framework\Base\Component\Collision\RectCollision\RectCollision.cpp" />
     <ClCompile Include="Framework\Base\Component\Component.cpp" />
     <ClCompile Include="Framework\Base\Component\RenderComponent\RenderComponent.cpp" />
+    <ClCompile Include="Framework\Base\Component\RenderComponent\SpriteRenderer\SpriteRenderer.cpp" />
     <ClCompile Include="Framework\Base\GameObject\AudioObject\AudioObject.cpp" />
     <ClCompile Include="Framework\Base\GameObject\GameObject.cpp" />
     <ClCompile Include="Framework\Base\Object\Object.cpp" />
@@ -181,12 +182,14 @@
     <ClCompile Include="Game\Components\CharacterRenderer\CharacterRenderer.cpp" />
     <ClCompile Include="Game\Components\HpbarRenderer\HpbarRenderer.cpp" />
     <ClCompile Include="Game\Components\PlayerAttack\PlayerAttack.cpp" />
+    <ClCompile Include="Game\Components\TitlePressEnterKey\TitlePressEnterKey.cpp" />
     <ClCompile Include="Game\GameObjects\Bullet\Bullet.cpp" />
     <ClCompile Include="Game\GameObjects\Characters\Character.cpp" />
     <ClCompile Include="Game\GameObjects\Characters\EnemyCharacter\EnemyCharacter.cpp" />
     <ClCompile Include="Game\GameObjects\Characters\PlayerableCharacter\PlayerableCharacter.cpp" />
     <ClCompile Include="Game\GameObjects\WaveController\WaveController.cpp" />
     <ClCompile Include="Game\Scenes\GameScene\GameScene.cpp" />
+    <ClCompile Include="Game\Scenes\TitleScene\TitleScene.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Framework\Base\Component\AudioComponent\AudioComponent.h" />
@@ -195,6 +198,7 @@
     <ClInclude Include="Framework\Base\Component\Collision\RectCollision\RectCollision.h" />
     <ClInclude Include="Framework\Base\Component\Component.h" />
     <ClInclude Include="Framework\Base\Component\RenderComponent\RenderComponent.h" />
+    <ClInclude Include="Framework\Base\Component\RenderComponent\SpriteRenderer\SpriteRenderer.h" />
     <ClInclude Include="Framework\Base\GameObject\AudioObject\AudioObject.h" />
     <ClInclude Include="Framework\Base\GameObject\GameObject.h" />
     <ClInclude Include="Framework\Base\Object\Object.h" />
@@ -221,12 +225,14 @@
     <ClInclude Include="Game\Components\CharacterRenderer\CharacterRenderer.h" />
     <ClInclude Include="Game\Components\HpbarRenderer\HpbarRenderer.h" />
     <ClInclude Include="Game\Components\PlayerAttack\PlayerAttack.h" />
+    <ClInclude Include="Game\Components\TitlePressEnterKey\TitlePressEnterKey.h" />
     <ClInclude Include="Game\GameObjects\Bullet\Bullet.h" />
     <ClInclude Include="Game\GameObjects\Characters\Character.h" />
     <ClInclude Include="Game\GameObjects\Characters\EnemyCharacter\EnemyCharacter.h" />
     <ClInclude Include="Game\GameObjects\Characters\PlayerableCharacter\PlayerableCharacter.h" />
     <ClInclude Include="Game\GameObjects\WaveController\WaveController.h" />
     <ClInclude Include="Game\Scenes\GameScene\GameScene.h" />
+    <ClInclude Include="Game\Scenes\TitleScene\TitleScene.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

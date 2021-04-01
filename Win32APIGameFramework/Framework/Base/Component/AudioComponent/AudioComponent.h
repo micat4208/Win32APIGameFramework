@@ -20,9 +20,9 @@ private :
     FMOD_BOOL IsPlaying;
 
 public :
+    CAudioComponent();
     void InitializeAudioComponent(const char* path, bool bLoop);
 
-    virtual void Initialize() override;
     virtual void Tick(float dt) override;
     virtual void Release() override;
 

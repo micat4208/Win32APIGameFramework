@@ -1,12 +1,13 @@
 #include "PlayerableCharacter.h"
 
-#include "../../../../Framework/Single/PlayerManager/PlayerManager.h"
+#include "Framework/Single/PlayerManager/PlayerManager.h"
 
-#include "../../../../Framework/Statics/GameplayStatics.h"
-#include "../../../../Framework/Base/Component/Collision/CircleCollision/CircleCollision.h"
+#include "Framework/Statics/GameplayStatics.h"
 
-#include "../../../Components/CharacterRenderer/CharacterRenderer.h"
-#include "../../../Components/PlayerAttack/PlayerAttack.h"
+#include "Framework/Base/Component/Collision/CircleCollision/CircleCollision.h"
+#include "Framework/Base/Component/RenderComponent/SpriteRenderer/SpriteRenderer.h"
+#include "Game/Components/CharacterRenderer/CharacterRenderer.h"
+#include "Game/Components/PlayerAttack/PlayerAttack.h"
 
 
 void CPlayerableCharacter::Initialize()
@@ -16,6 +17,22 @@ void CPlayerableCharacter::Initialize()
 	AddTag(TAG_PLAYER_CHARACTER);
 	RegisterCharacter(AddComponent<CCircleCollision>());
 	CPlayerManager::Instance()->RegisterPlayerableCharacter(this);
+
+	SpriteRenderer->InitializeSpriteRenderer(
+		/*path               = */ TEXT("Resources/Sprite/T_Player.bmp"),
+		/*spriteWidth        = */ 48.0f,
+		/*spriteHeight       = */ 48.0f,
+		/*drawWidth          = */ 96.0f,
+		/*drawHeight         = */ 96.0f,
+		/*bUseTransparentBlt = */ true,
+		/*dwRop              = */ NULL,
+		/*crTransparent)     = */ RGB(255, 0, 255));
+
+	SpriteRenderer->RegisterSpriteAnimInfo(
+		TEXT("Test"),
+		FSpriteAnimInfo(0.5f, 0, 2, 0));
+	SpriteRenderer->SetSortingOrder(10);
+	SpriteRenderer->ChangeAnimation(TEXT("Test"));
 }
 
 void CPlayerableCharacter::Start()

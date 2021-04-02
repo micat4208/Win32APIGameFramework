@@ -173,6 +173,7 @@
     <ClCompile Include="Framework\Single\PlayerManager\PlayerManager.cpp" />
     <ClCompile Include="Framework\Single\SceneManager\SceneManager.cpp" />
     <ClCompile Include="Framework\Statics\GameplayStatics.cpp" />
+    <ClCompile Include="Framework\Structrues\SpriteAnimInfo\SpriteAnimInfo.cpp" />
     <ClCompile Include="Framework\Structrues\Vector2\Vector2.cpp" />
     <ClCompile Include="Framework\Util\ObjectPool.cpp" />
     <ClCompile Include="Game\Components\AIBehaviorController\AIBehaviorController.cpp" />
@@ -216,6 +217,7 @@
     <ClInclude Include="Framework\Single\SceneManager\SceneManager.h" />
     <ClInclude Include="Framework\Statics\GameplayStatics.h" />
     <ClInclude Include="Framework\Structrues\Math\Math.h" />
+    <ClInclude Include="Framework\Structrues\SpriteAnimInfo\SpriteAnimInfo.h" />
     <ClInclude Include="Framework\Structrues\Vector2\Vector2.h" />
     <ClInclude Include="Framework\Util\ObjectPool.h" />
     <ClInclude Include="Game\Components\AIBehaviorController\AIBehaviorController.h" />

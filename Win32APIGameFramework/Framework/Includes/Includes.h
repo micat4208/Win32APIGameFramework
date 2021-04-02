@@ -15,6 +15,9 @@
 #include <fmod.h>
 
 #include "Log.h"
+
+#pragma comment(lib, "msimg32.lib")
+
 using namespace std;
 
 #ifdef UNICODE

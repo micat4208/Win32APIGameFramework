@@ -1,2 +1,40 @@
-﻿  PlayerAttack.cpp
+﻿  AudioComponent.cpp
+  CircleCollision.cpp
+  Collision.cpp
+  RectCollision.cpp
+  Component.cpp
+  RenderComponent.cpp
+  SpriteRenderer.cpp
+  AudioObject.cpp
+  GameObject.cpp
+  Object.cpp
+  Scene.cpp
+  Bitmap.cpp
+  Entry.cpp
+  CollisionManager.cpp
+  GameInstance.cpp
+  PlayerManager.cpp
+  SceneManager.cpp
+  GameplayStatics.cpp
+  SpriteAnimInfo.cpp
+  Vector2.cpp
+  코드를 생성하고 있습니다...
+  컴파일하고 있습니다...
+  ObjectPool.cpp
+  AIBehaviorController.cpp
+  AIBehavior.cpp
+  AIBHTrackingPlayer.cpp
+  BulletRenderer.cpp
+  CharacterRenderer.cpp
+  HpbarRenderer.cpp
+  PlayerAttack.cpp
+  TitlePressEnterKey.cpp
+  Bullet.cpp
+  Character.cpp
+  EnemyCharacter.cpp
+  PlayerableCharacter.cpp
+  WaveController.cpp
+  GameScene.cpp
+  TitleScene.cpp
+  코드를 생성하고 있습니다...
   Win32APIGameFramework.vcxproj -> C:\Users\SBSGAME\Desktop\Share\GameProgramming\GameProgramming5\Win32API\Game\Win32APIGameFramework\x64\Debug\Win32APIGameFramework.exe

@@ -1,12 +1,15 @@
 #include "Character.h"
 
-#include "../../Components/HpbarRenderer/HpbarRenderer.h"
+#include "Game/Components/HpbarRenderer/HpbarRenderer.h"
+#include "Framework/Base/Component/RenderComponent/SpriteRenderer/SpriteRenderer.h"
 
-#include "../../Scenes/GameScene/GameScene.h"
+#include "Game/Scenes/GameScene/GameScene.h"
 
 void CCharacter::Initialize()
 {
 	__super::Initialize();
+
+	SpriteRenderer = AddComponent<CSpriteRenderer>();
 	AddComponent<CHpbarRenderer>();
 
 	MaxHp = Hp = 100.0f;

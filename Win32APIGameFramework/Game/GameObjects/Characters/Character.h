@@ -8,6 +8,8 @@ protected :
     float MaxHp;
     float Hp;
 
+    class CSpriteRenderer* SpriteRenderer;
+
 public :
     virtual void Initialize() override;
     virtual void Start() override;

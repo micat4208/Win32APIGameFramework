@@ -18,9 +18,12 @@ FVector2 FVector2::Direction(const FVector2& from, const FVector2& to)
 	return FVector2((to.X - from.X), (to.Y - from.Y)).Normalized();
 }
 
-string FVector2::ToString() const
+tstring FVector2::ToString() const
 {
-	return "(" + to_string(X) + ", " + to_string(Y) + ")";
+	tstring str;
+	string vectorToString = "(" + to_string(X) + ", " + to_string(Y) + ")";
+	str.assign(vectorToString.begin(), vectorToString.end());
+	return str;
 }
 
 float FVector2::Length()
@@ -31,6 +34,9 @@ float FVector2::Length()
 FVector2 FVector2::Normalized()
 {
 	float length = this->Length();
-	return FVector2(X / length, Y / length);
+
+	return FMath::Approximately(length, 0.0f) ? 
+		FVector2::ZeroVector() :
+		FVector2(X / length, Y / length);
 }
 

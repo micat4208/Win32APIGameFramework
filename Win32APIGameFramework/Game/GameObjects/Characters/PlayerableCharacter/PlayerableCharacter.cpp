@@ -28,11 +28,41 @@ void CPlayerableCharacter::Initialize()
 		/*dwRop              = */ NULL,
 		/*crTransparent)     = */ RGB(255, 0, 255));
 
+
 	SpriteRenderer->RegisterSpriteAnimInfo(
-		TEXT("Test"),
-		FSpriteAnimInfo(0.5f, 0, 2, 0));
+		TEXT("Idle_Left"), FSpriteAnimInfo(
+			/*spriteDelay      = */	1.0f,
+			/*spriteStartIndex = */	1,
+			/*spriteEndIndex   = */	1,
+			/*spriteYIndex     = */	0));
+
+	SpriteRenderer->RegisterSpriteAnimInfo(
+		TEXT("Idle_Right"), FSpriteAnimInfo(
+			/*spriteDelay      = */	1.0f,
+			/*spriteStartIndex = */	1,
+			/*spriteEndIndex   = */	1,
+			/*spriteYIndex     = */	1));
+
+	SpriteRenderer->RegisterSpriteAnimInfo(
+		TEXT("Move_Left"), FSpriteAnimInfo(
+			/*spriteDelay      = */	0.1f, 
+			/*spriteStartIndex = */	0,
+			/*spriteEndIndex   = */	2,
+			/*spriteYIndex     = */	0));
+
+	SpriteRenderer->RegisterSpriteAnimInfo(
+		TEXT("Move_Right"), FSpriteAnimInfo(
+			/*spriteDelay      = */	0.1f,
+			/*spriteStartIndex = */	0,
+			/*spriteEndIndex   = */	2,
+			/*spriteYIndex     = */	1));
+
+
+
 	SpriteRenderer->SetSortingOrder(10);
-	SpriteRenderer->ChangeAnimation(TEXT("Test"));
+	SpriteRenderer->ChangeAnimation(TEXT("Move_Right"));
+
+	MaxMoveSpeed = 400.0f;
 }
 
 void CPlayerableCharacter::Start()
@@ -56,15 +86,34 @@ void CPlayerableCharacter::OnCharacterDie()
 
 void CPlayerableCharacter::InputKey(float dt)
 {
+	MoveDirection = FVector2::ZeroVector();
+
+	// 방향 설정
 	if (GetAsyncKeyState(MOVE_LEFT))
-		SetPosition(GetPosition() + FVector2(-400.0f, 0.0f) * dt);
+	{
+		MoveDirection += FVector2::LeftVector();
+		PrevInputDirection = MoveDirection;
+	}
 	else if (GetAsyncKeyState(MOVE_RIGHT))
-		SetPosition(GetPosition() + FVector2(400.0f, 0.0f) * dt);
+	{
+		MoveDirection += FVector2::RightVector();
+		PrevInputDirection = MoveDirection;
+	}
 
 	if (GetAsyncKeyState(MOVE_UP))
-		SetPosition(GetPosition() + FVector2(0.0f, -400.0f) * dt);
+		MoveDirection += FVector2::UpVector();
 	else if (GetAsyncKeyState(MOVE_DOWN))
-		SetPosition(GetPosition() + FVector2(0.0f, 400.0f) * dt);
+		MoveDirection += FVector2::DownVector();
+
+	// 벡터 정규화
+	MoveDirection = MoveDirection.Normalized();
+	SetPosition(GetPosition() + (MoveDirection * MaxMoveSpeed * dt));
+
+	tstring actionName = (MoveDirection.Length() < 0.1f) ? TEXT("Idle_") : TEXT("Move_");
+	actionName += (PrevInputDirection.X > 0) ? TEXT("Right") : TEXT("Left");
+
+	SpriteRenderer->ChangeAnimation(actionName);
+
 
 	// 마우스 위치를 얻습니다.
 	MousePosition = CGameplayStatics::GetMousePosition();

@@ -19,6 +19,15 @@ private :
 	class CPlayerAttack* PlayerAttack;
 
 	FVector2 MousePosition;
+
+	// 이동 방향을 나타냅니다.
+	FVector2 MoveDirection;
+
+	// 마지막으로 입력된 방향 (애니메이션을 재생하기 위해 선언)
+	FVector2 PrevInputDirection;
+
+	// 이동 속력을 나타냅니다.
+	float MaxMoveSpeed;
 	
 	
 

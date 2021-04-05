@@ -19,7 +19,7 @@ public:
 	static FVector2 Direction(const FVector2& from, const FVector2& to);
 
 	// X, Y 의 값을 string 형식으로 반환합니다.
-	string ToString() const;
+	tstring ToString() const;
 
 	// 벡터의 길이를 반환합니다.
 	float Length();

@@ -5,14 +5,15 @@
 #include "Framework/Statics/GameplayStatics.h"
 
 #include "Game/GameObjects/Characters/PlayerableCharacter/PlayerableCharacter.h"
+#include "Game/GameObjects/Characters/EnemyCharacter/EnemyCharacter.h"
 
 #include "../../AIBehaviorController.h"
 
 
 
-void CAIBHTrackingPlayer::StartBehaivor()
+void CAIBHTrackingPlayer::InitializeBehaivor()
 {
-	__super::StartBehaivor();
+    __super::InitializeBehaivor();
 
     DirectionUpdateMinDelay = 0.5f;
     DirectionUpdateMaxDelay = 2.0f;
@@ -22,6 +23,12 @@ void CAIBHTrackingPlayer::StartBehaivor()
     LastDirectionUpdatedTime = 0.0f;
 
     Speed = 20.0f;
+}
+
+void CAIBHTrackingPlayer::StartBehaivor()
+{
+	__super::StartBehaivor();
+
 
     // 플레이어블 캐릭터를 추적 타깃으로 설정합니다.
     TrackingTarget = CPlayerManager::Instance()->GetPlayerableCharacter();
@@ -43,10 +50,11 @@ void CAIBHTrackingPlayer::UpdateDirection()
         DirectionUpdateDelay = FMath::FRandRange(
             DirectionUpdateMinDelay, DirectionUpdateMaxDelay);
 
+        auto enemyCharacter = Cast<CEnemyCharacter>(BehaviorController->GetOwner());
         FVector2 enemyCharacterPosition = BehaviorController->GetOwner()->GetPosition();
 
         // 방향 갱신
-        Direction = FVector2::Direction(
+        enemyCharacter->Direction = Direction = FVector2::Direction(
             enemyCharacterPosition, TrackingTarget->GetPosition());
     }
 }

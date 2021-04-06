@@ -29,6 +29,7 @@ private :
     float LastDirectionUpdatedTime;
 
 public :
+    virtual void InitializeBehaivor() override;
     virtual void StartBehaivor() override;
     virtual void BehaviorTick(float dt) override;
 
@@ -38,6 +39,10 @@ private :
 
     // 플레이어를 추적합니다.
     void TrackingPlayer(float dt);
+
+public :
+    FORCEINLINE FVector2 GetDirection() const
+    { return Direction; }
 
 };
 

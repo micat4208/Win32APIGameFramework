@@ -19,6 +19,10 @@ void CAIBehaviorController::StartBehaviorControl()
 {
 	bBehaviorControlStarted = true;
 	LastBehaviorStartedTime = CGameplayStatics::GetTime();
+
+	// 행동을 시작하기 전에 등록된 모든 행동 객체들을 초기화합니다.
+	for (auto behavior : Behaviors)
+		behavior->InitializeBehaivor();
 }
 
 void CAIBehaviorController::BehaviorControl(float dt)

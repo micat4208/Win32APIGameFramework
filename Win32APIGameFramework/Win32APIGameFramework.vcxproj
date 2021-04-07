@@ -183,6 +183,7 @@
     <ClCompile Include="Game\Components\CharacterRenderer\CharacterRenderer.cpp" />
     <ClCompile Include="Game\Components\HpbarRenderer\HpbarRenderer.cpp" />
     <ClCompile Include="Game\Components\PlayerAttack\PlayerAttack.cpp" />
+    <ClCompile Include="Game\Components\PlayerMovement\PlayerMovement.cpp" />
     <ClCompile Include="Game\Components\TitlePressEnterKey\TitlePressEnterKey.cpp" />
     <ClCompile Include="Game\GameObjects\Bullet\Bullet.cpp" />
     <ClCompile Include="Game\GameObjects\Characters\Character.cpp" />
@@ -227,6 +228,7 @@
     <ClInclude Include="Game\Components\CharacterRenderer\CharacterRenderer.h" />
     <ClInclude Include="Game\Components\HpbarRenderer\HpbarRenderer.h" />
     <ClInclude Include="Game\Components\PlayerAttack\PlayerAttack.h" />
+    <ClInclude Include="Game\Components\PlayerMovement\PlayerMovement.h" />
     <ClInclude Include="Game\Components\TitlePressEnterKey\TitlePressEnterKey.h" />
     <ClInclude Include="Game\GameObjects\Bullet\Bullet.h" />
     <ClInclude Include="Game\GameObjects\Characters\Character.h" />

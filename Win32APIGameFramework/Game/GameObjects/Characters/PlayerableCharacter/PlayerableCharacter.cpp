@@ -8,15 +8,19 @@
 #include "Framework/Base/Component/RenderComponent/SpriteRenderer/SpriteRenderer.h"
 #include "Game/Components/CharacterRenderer/CharacterRenderer.h"
 #include "Game/Components/PlayerAttack/PlayerAttack.h"
+#include "Game/Components/PlayerMovement/PlayerMovement.h"
 
 
 void CPlayerableCharacter::Initialize()
 {
 	__super::Initialize();
 
+	bPrevJumpKeyPressedState = false;
+
 	AddTag(TAG_PLAYER_CHARACTER);
 	RegisterCharacter(AddComponent<CCircleCollision>());
 	CPlayerManager::Instance()->RegisterPlayerableCharacter(this);
+	PlayerMovement = AddComponent<CPlayerMovement>();
 
 	SpriteRenderer->InitializeSpriteRenderer(
 		/*path               = */ TEXT("Resources/Sprite/T_Player.bmp"),
@@ -88,6 +92,8 @@ void CPlayerableCharacter::InputKey(float dt)
 {
 	MoveDirection = FVector2::ZeroVector();
 
+
+
 	// 방향 설정
 	if (GetAsyncKeyState(MOVE_LEFT))
 	{
@@ -120,4 +126,20 @@ void CPlayerableCharacter::InputKey(float dt)
 
 	PlayerAttack->AttackDirection = FVector2::Direction(
 		GetPosition(), MousePosition);
+
+
+
+	// 점프 키 입력
+	if (GetAsyncKeyState(VK_SPACE))
+	{
+		if (!bPrevJumpKeyPressedState)
+		{
+			bPrevJumpKeyPressedState = true;
+
+			PlayerMovement->Jump();
+
+			LOG(TEXT("Jump Key!"));
+		}
+	}
+	else bPrevJumpKeyPressedState = false;
 }

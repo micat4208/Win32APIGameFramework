@@ -16,6 +16,11 @@ class CPlayerableCharacter final :
 	public CCharacter
 {
 private :
+	class CPlayerMovement* PlayerMovement;
+
+	// 이전 점프키 눌림 상태
+	bool bPrevJumpKeyPressedState;
+
 	class CPlayerAttack* PlayerAttack;
 
 	FVector2 MousePosition;
